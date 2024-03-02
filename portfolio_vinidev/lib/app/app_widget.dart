@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 import 'package:portfolio_vinidev/app/dashboard/dashboard_page.dart';
 
 class AppWidget extends StatelessWidget {
@@ -8,7 +9,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
+      theme: portfolioTheme,
       routes: {
         DashboardPage.routeName: (context) => const DashboardPage(),
       },
