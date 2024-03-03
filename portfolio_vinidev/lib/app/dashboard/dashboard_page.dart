@@ -31,6 +31,7 @@ class _DashboardPageState extends State<DashboardPage> {
         titleSpacing: 50,
         elevation: 0,
         toolbarHeight: screenSize.height * 0.1,
+        scrolledUnderElevation: 0,
         title: Row(
           children: [
             Image.asset("assets/images/logo/logo.png", width: 130),
