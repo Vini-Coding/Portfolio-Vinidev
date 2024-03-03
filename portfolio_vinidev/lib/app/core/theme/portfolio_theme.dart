@@ -6,14 +6,23 @@ ThemeData portfolioTheme = ThemeData(
   colorScheme: portfolioColorScheme,
   primaryColor: portfolioColorScheme.primary,
   backgroundColor: portfolioColorScheme.background,
-  appBarTheme: AppBarTheme(
-    color: portfolioColorScheme.background,
-  ),
   textTheme: TextTheme(
-    headlineLarge: TextStyle(
+    displayLarge: TextStyle(
       fontFamily: "Compiler",
       fontWeight: FontWeight.w700,
       fontSize: 40,
+      color: portfolioColorScheme.onBackground,
+    ),
+    headlineLarge: TextStyle(
+      fontFamily: "Compiler",
+      fontWeight: FontWeight.w900,
+      fontSize: 40,
+      color: portfolioColorScheme.onBackground,
+    ),
+    headlineMedium: TextStyle(
+      fontFamily: "Compiler",
+      fontWeight: FontWeight.w900,
+      fontSize: 20,
       color: portfolioColorScheme.onBackground,
     ),
     labelMedium: TextStyle(
@@ -27,6 +36,19 @@ ThemeData portfolioTheme = ThemeData(
       fontWeight: FontWeight.w500,
       fontSize: 16,
       color: portfolioColorScheme.onBackground,
+    ),
+    bodySmall: TextStyle(
+      fontFamily: "Comfortaa",
+      fontWeight: FontWeight.w500,
+      fontSize: 16,
+      color: portfolioColorScheme.onSecondary,
+    ),
+    labelLarge: TextStyle(
+      fontFamily: "Compiler",
+      fontWeight: FontWeight.w800,
+      fontStyle: FontStyle.italic,
+      fontSize: 16,
+      color: portfolioColorScheme.onTertiary,
     ),
   ),
 );
