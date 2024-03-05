@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_color_scheme.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
+import 'package:portfolio_vinidev/app/core/utils/responsive_layout_builder.dart';
 
 class TheGuyView extends StatefulWidget {
   const TheGuyView({super.key});
@@ -13,13 +14,11 @@ class _TheGuyViewState extends State<TheGuyView> {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    return Container(
-      color: portfolioColorScheme.secondary,
-      height: screenSize.height,
-      width: screenSize.width,
-      child: Row(
+
+    return ResponsiveLayoutBuilder(
+      backgroundColor: portfolioColorScheme.secondary,
+      desktop: Row(
         children: [
-          SizedBox(width: screenSize.width * 0.03),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -39,16 +38,17 @@ class _TheGuyViewState extends State<TheGuyView> {
                           color: portfolioColorScheme.tertiary,
                         ),
                       ),
-                      const TextSpan(text: ", and I'm"),
+                      const TextSpan(text: ", and I'm\n"),
+                      TextSpan(
+                        text: "a Developer",
+                        style: portfolioTheme.textTheme.headlineLarge?.copyWith(
+                          color: portfolioColorScheme.tertiary,
+                        ),
+                      ),
                     ],
                   ),
                 ),
-                Text(
-                  "a Developer",
-                  style: portfolioTheme.textTheme.headlineLarge?.copyWith(
-                    color: portfolioColorScheme.tertiary,
-                  ),
-                ),
+                SizedBox(height: screenSize.height * 0.03),
                 RichText(
                   textAlign: TextAlign.justify,
                   maxLines: 8,
@@ -113,12 +113,14 @@ class _TheGuyViewState extends State<TheGuyView> {
                     ],
                   ),
                 ),
+                SizedBox(height: screenSize.height * 0.02),
                 Text(
                   "For me, 3 keys are needed for an efficient development. They are:\n1. How well you solve the user’s problem.\n2. How clean and maintanable is your code.\n3. How suitable is your app’s design.",
                   style: portfolioTheme.textTheme.bodySmall,
                   maxLines: 5,
                   textAlign: TextAlign.justify,
                 ),
+                SizedBox(height: screenSize.height * 0.02),
                 RichText(
                   textAlign: TextAlign.justify,
                   text: TextSpan(
@@ -158,6 +160,8 @@ class _TheGuyViewState extends State<TheGuyView> {
           ),
         ],
       ),
+      tablet: const SizedBox(),
+      mobile: const SizedBox(),
     );
   }
 }
