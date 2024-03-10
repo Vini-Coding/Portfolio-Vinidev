@@ -25,6 +25,10 @@ class ResponsiveLayoutBuilder extends StatelessWidget {
             width: screenSize.width,
             alignment: Alignment.center,
             color: backgroundColor,
+            padding: EdgeInsets.symmetric(
+              vertical: screenSize.height * 0.05,
+              horizontal: screenSize.width * 0.035,
+            ),
             child: mobile,
           );
         } else if (constraints.maxWidth < 1200) {
@@ -32,6 +36,10 @@ class ResponsiveLayoutBuilder extends StatelessWidget {
             width: screenSize.width,
             alignment: Alignment.center,
             color: backgroundColor,
+            padding: EdgeInsets.symmetric(
+              vertical: screenSize.height * 0.05,
+              horizontal: screenSize.width * 0.035,
+            ),
             child: tablet,
           );
         } else {
@@ -40,7 +48,7 @@ class ResponsiveLayoutBuilder extends StatelessWidget {
             alignment: Alignment.center,
             color: backgroundColor,
             padding: EdgeInsets.symmetric(
-              vertical: screenSize.height * 0.05,
+              vertical: screenSize.height * 0.077,
               horizontal: screenSize.width * 0.035,
             ),
             child: desktop,

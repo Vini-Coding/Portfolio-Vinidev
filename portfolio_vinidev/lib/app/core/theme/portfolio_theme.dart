@@ -12,6 +12,7 @@ ThemeData portfolioTheme = ThemeData(
       fontWeight: FontWeight.w700,
       fontSize: 40,
       color: portfolioColorScheme.onBackground,
+      
     ),
     headlineLarge: TextStyle(
       fontFamily: "Compiler",
