@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 import 'package:portfolio_vinidev/app/dashboard/home/home_view.dart';
 import 'package:portfolio_vinidev/app/dashboard/the_guy/the_guy_view.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../core/theme/portfolio_color_scheme.dart';
 
@@ -15,6 +16,9 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+  final ItemScrollController _itemScrollController = ItemScrollController();
+  final ItemPositionsListener _itemPositionsListener =
+      ItemPositionsListener.create();
   final onMenuHover = Matrix4.identity()..scale(1);
   int menuIndex = 0;
   final List<String> menuItems = [
@@ -27,6 +31,20 @@ class _DashboardPageState extends State<DashboardPage> {
     const TheGuyView(),
   ];
 
+  Future<void> scrollTo({required int indexView}) async {
+    _itemScrollController
+        .scrollTo(
+      index: indexView,
+      duration: const Duration(seconds: 2),
+      curve: Curves.fastLinearToSlowEaseIn,
+    )
+        .whenComplete(() {
+      setState(() {
+        menuIndex = indexView;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -36,12 +54,13 @@ class _DashboardPageState extends State<DashboardPage> {
         backgroundColor: portfolioTheme.backgroundColor,
         titleSpacing: 30,
         elevation: 0,
-        toolbarHeight: screenSize.height * 0.15,
+        toolbarHeight: screenSize.height * 0.12,
         scrolledUnderElevation: 0,
         title: LayoutBuilder(
           builder: (context, constraints) {
             if (constraints.maxWidth > 768) {
               return Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(width: screenSize.width * 0.01),
                   Image.asset("assets/images/logo/logo.png", width: 130),
@@ -51,7 +70,9 @@ class _DashboardPageState extends State<DashboardPage> {
                     child: ListView.separated(
                       itemBuilder: (context, index) {
                         return InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            scrollTo(indexView: index);
+                          },
                           borderRadius: BorderRadius.circular(100),
                           hoverColor: Colors.transparent,
                           onHover: (value) {
@@ -92,7 +113,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       shrinkWrap: true,
                     ),
                   ),
-                  SizedBox(width: screenSize.width * 0.01),
+                  SizedBox(width: screenSize.width * 0.015),
                 ],
               );
             } else {
@@ -100,15 +121,40 @@ class _DashboardPageState extends State<DashboardPage> {
                 children: [
                   Image.asset("assets/images/logo/logo.png", width: 130),
                   const Spacer(),
-                  const FaIcon(FontAwesomeIcons.bars),
+                  PopupMenuButton(
+                    icon: const FaIcon(FontAwesomeIcons.bars),
+                    position: PopupMenuPosition.under,
+                    constraints: BoxConstraints.tightFor(
+                      width: screenSize.width * 0.9,
+                    ),
+                    itemBuilder: (context) {
+                      return menuItems
+                          .asMap()
+                          .entries
+                          .map(
+                            (element) => PopupMenuItem(
+                              child: Text(
+                                element.value,
+                                style: portfolioTheme.textTheme.labelMedium,
+                              ),
+                              onTap: () => scrollTo(
+                                indexView: element.key,
+                              ),
+                            ),
+                          )
+                          .toList();
+                    },
+                  ),
                 ],
               );
             }
           },
         ),
       ),
-      body: ListView.builder(
+      body: ScrollablePositionedList.builder(
         itemCount: viewsList.length,
+        itemScrollController: _itemScrollController,
+        itemPositionsListener: _itemPositionsListener,
         itemBuilder: (context, index) => viewsList[index],
       ),
     );

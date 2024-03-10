@@ -48,7 +48,7 @@ class ResponsiveLayoutBuilder extends StatelessWidget {
             alignment: Alignment.center,
             color: backgroundColor,
             padding: EdgeInsets.symmetric(
-              vertical: screenSize.height * 0.077,
+              vertical: screenSize.height * 0.09,
               horizontal: screenSize.width * 0.035,
             ),
             child: desktop,
