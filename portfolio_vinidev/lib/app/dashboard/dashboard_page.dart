@@ -17,6 +17,7 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   final ItemScrollController _itemScrollController = ItemScrollController();
+  final ScrollController _scrollController = ScrollController();
   final ItemPositionsListener _itemPositionsListener =
       ItemPositionsListener.create();
   final onMenuHover = Matrix4.identity()..scale(1);
@@ -42,6 +43,15 @@ class _DashboardPageState extends State<DashboardPage> {
       setState(() {
         menuIndex = indexView;
       });
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      menuIndex =
+          _itemPositionsListener.itemPositions.value.iterator.current.index;
     });
   }
 
@@ -94,12 +104,8 @@ class _DashboardPageState extends State<DashboardPage> {
                               menuItems[index],
                               style: portfolioTheme.textTheme.labelMedium
                                   ?.copyWith(
-                                fontWeight: menuIndex == index
-                                    ? FontWeight.w800
-                                    : FontWeight.w400,
-                                color: menuIndex == index
-                                    ? portfolioColorScheme.primary
-                                    : portfolioColorScheme.onBackground,
+                                fontWeight: FontWeight.w700,
+                                color: portfolioColorScheme.primary,
                               ),
                             ),
                           ),
@@ -155,7 +161,9 @@ class _DashboardPageState extends State<DashboardPage> {
         itemCount: viewsList.length,
         itemScrollController: _itemScrollController,
         itemPositionsListener: _itemPositionsListener,
-        itemBuilder: (context, index) => viewsList[index],
+        itemBuilder: (context, index) {
+          return viewsList[index];
+        },
       ),
     );
   }
