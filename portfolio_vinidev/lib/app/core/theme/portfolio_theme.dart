@@ -12,7 +12,6 @@ ThemeData portfolioTheme = ThemeData(
       fontWeight: FontWeight.w700,
       fontSize: 40,
       color: portfolioColorScheme.onBackground,
-      
     ),
     headlineLarge: TextStyle(
       fontFamily: "Compiler",
@@ -40,7 +39,7 @@ ThemeData portfolioTheme = ThemeData(
     ),
     bodySmall: TextStyle(
       fontFamily: "Comfortaa",
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w400,
       fontSize: 16,
       color: portfolioColorScheme.onSecondary,
     ),

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_color_scheme.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 import 'package:portfolio_vinidev/app/core/utils/responsive_layout_builder.dart';
+import 'package:portfolio_vinidev/app/dashboard/the_guy/components/about_me_desktop_component.dart';
+import 'package:portfolio_vinidev/app/dashboard/the_guy/components/skills_desktop_component.dart';
+import 'dart:html';
 
 class TheGuyView extends StatefulWidget {
   const TheGuyView({super.key});
@@ -11,9 +14,38 @@ class TheGuyView extends StatefulWidget {
 }
 
 class _TheGuyViewState extends State<TheGuyView> {
+  final List<String> tabs = [
+    "About me",
+    "Skills",
+  ];
+
+  int currentTabIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
+
+    double changeLinePosition() {
+      switch (currentTabIndex) {
+        case 0:
+          return 0;
+        case 1:
+          return screenSize.width * 0.08;
+        default:
+          return 0;
+      }
+    }
+
+    double changeLineWidth() {
+      switch (currentTabIndex) {
+        case 0:
+          return screenSize.width * 0.06;
+        case 1:
+          return screenSize.width * 0.035;
+        default:
+          return screenSize.width * 0.06;
+      }
+    }
 
     return ResponsiveLayoutBuilder(
       backgroundColor: portfolioColorScheme.secondary,
@@ -24,120 +56,71 @@ class _TheGuyViewState extends State<TheGuyView> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                RichText(
-                  text: TextSpan(
-                    style: portfolioTheme.textTheme.headlineMedium?.copyWith(
-                      color: portfolioColorScheme.onSecondary,
-                    ),
-                    text: "I am ",
+                SizedBox(
+                  width: screenSize.width,
+                  height: screenSize.height * 0.045,
+                  child: Stack(
                     children: [
-                      TextSpan(
-                        text: "Vini",
-                        style:
-                            portfolioTheme.textTheme.headlineMedium?.copyWith(
-                          color: portfolioColorScheme.tertiary,
+                      Positioned(
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        child: SizedBox(
+                          width: screenSize.width,
+                          height: screenSize.height * 0.03,
+                          child: ListView.separated(
+                            scrollDirection: Axis.horizontal,
+                            physics: const BouncingScrollPhysics(),
+                            itemCount: tabs.length,
+                            itemBuilder: (context, index) {
+                              return InkWell(
+                                onTap: () => setState(() {
+                                  currentTabIndex = index;
+                                }),
+                                child: Text(
+                                  tabs[index],
+                                  style: portfolioTheme.textTheme.bodySmall!
+                                      .copyWith(
+                                    fontWeight: currentTabIndex == index
+                                        ? FontWeight.w800
+                                        : FontWeight.w500,
+                                  ),
+                                ),
+                              );
+                            },
+                            separatorBuilder: (context, index) => SizedBox(
+                              width: screenSize.width * 0.02,
+                            ),
+                          ),
                         ),
                       ),
-                      const TextSpan(text: ", and I'm\n"),
-                      TextSpan(
-                        text: "a Developer",
-                        style: portfolioTheme.textTheme.headlineLarge?.copyWith(
-                          color: portfolioColorScheme.tertiary,
+                      AnimatedPositioned(
+                        bottom: 0,
+                        left: changeLinePosition(),
+                        curve: Curves.fastLinearToSlowEaseIn,
+                        duration: const Duration(milliseconds: 500),
+                        child: AnimatedContainer(
+                          curve: Curves.fastLinearToSlowEaseIn,
+                          margin:
+                              EdgeInsets.only(right: screenSize.width * 0.02),
+                          duration: const Duration(milliseconds: 500),
+                          height: screenSize.height * 0.005,
+                          width: changeLineWidth(),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: portfolioColorScheme.tertiaryContainer,
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
                 SizedBox(height: screenSize.height * 0.03),
-                RichText(
-                  textAlign: TextAlign.justify,
-                  maxLines: 8,
-                  text: TextSpan(
-                    style: portfolioTheme.textTheme.bodySmall,
-                    text: "I believe that ",
-                    children: [
-                      TextSpan(
-                        text: "development is more than delivering a software",
-                        style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                          fontWeight: FontWeight.w900,
-                          color: portfolioColorScheme.tertiary,
-                        ),
-                      ),
-                      const TextSpan(text: ". Being a dev is about "),
-                      TextSpan(
-                        text: "succesfully solvin the user’s problem",
-                        style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                          fontWeight: FontWeight.w900,
-                          color: portfolioColorScheme.tertiary,
-                        ),
-                      ),
-                      const TextSpan(text: ", with the "),
-                      TextSpan(
-                        text: "best design choices",
-                        style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                          fontWeight: FontWeight.w900,
-                          color: portfolioColorScheme.tertiary,
-                        ),
-                      ),
-                      const TextSpan(text: ", "),
-                      TextSpan(
-                        text: "best coding practices",
-                        style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                          fontWeight: FontWeight.w900,
-                          color: portfolioColorScheme.tertiary,
-                        ),
-                      ),
-                      const TextSpan(text: " and the "),
-                      TextSpan(
-                        text: "best experience",
-                        style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                          fontWeight: FontWeight.w900,
-                          color: portfolioColorScheme.tertiary,
-                        ),
-                      ),
-                      const TextSpan(
-                        text:
-                            "that you can purpose.  After being a developer, I am a Flutter developer. ",
-                      ),
-                      TextSpan(
-                        text: "I specialized myself in Flutter development",
-                        style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                          fontWeight: FontWeight.w900,
-                          color: portfolioColorScheme.tertiary,
-                        ),
-                      ),
-                      const TextSpan(
-                        text:
-                            ", mastering state management, dependency injecton, clean architectures, cross-platform development and all the magic that Flutter can bring.",
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: screenSize.height * 0.02),
-                Text(
-                  "For me, 3 keys are needed for an efficient development. They are:\n1. How well you solve the user’s problem.\n2. How clean and maintanable is your code.\n3. How suitable is your app’s design.",
-                  style: portfolioTheme.textTheme.bodySmall,
-                  maxLines: 5,
-                  textAlign: TextAlign.justify,
-                ),
-                SizedBox(height: screenSize.height * 0.02),
-                RichText(
-                  textAlign: TextAlign.justify,
-                  text: TextSpan(
-                    style: portfolioTheme.textTheme.bodySmall,
-                    text:
-                        "And I won’t be modest in say that I know the paths of these keys, so, believe me, ",
-                    children: [
-                      TextSpan(
-                        text: "I am the guy that you are looking for",
-                        style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                          fontWeight: FontWeight.w900,
-                          color: portfolioColorScheme.tertiary,
-                        ),
-                      ),
-                      const TextSpan(text: "!"),
-                    ],
-                  ),
+                SizedBox(
+                  height: screenSize.height * 0.62,
+                  child: currentTabIndex == 0
+                      ? const AboutMeDesktopComponent()
+                      : const SkillsDesktopComponent(),
                 ),
               ],
             ),
@@ -148,11 +131,27 @@ class _TheGuyViewState extends State<TheGuyView> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset('assets/images/dash/dash_the_guy.png'),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Download CV",
-                    style: portfolioTheme.textTheme.labelLarge,
+                InkWell(
+                  onTap: () {
+                    AnchorElement anchorElement = AnchorElement(href: "/assets/cv/cv.pdf");
+                    anchorElement.download = "Vinícius Soares da Silva Melo";
+                    anchorElement.click();
+                  },
+                  child: Container(
+                    height: screenSize.height * 0.06,
+                    width: screenSize.width * 0.17,
+                    decoration: BoxDecoration(
+                      color: portfolioColorScheme.tertiaryContainer,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "DOWNLOAD CV",
+                        style: portfolioTheme.textTheme.labelLarge!.copyWith(
+                          fontSize: screenSize.width * 0.015,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],

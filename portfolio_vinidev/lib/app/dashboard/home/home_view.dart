@@ -42,7 +42,9 @@ class _HomeViewState extends State<HomeView> {
                 RichText(
                   textAlign: TextAlign.justify,
                   text: TextSpan(
-                    style: portfolioTheme.textTheme.bodyMedium,
+                    style: portfolioTheme.textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
                     text:
                         "If you are looking for someone who could bring your ideas and concepts to the fingertips of users with ",
                     children: [
