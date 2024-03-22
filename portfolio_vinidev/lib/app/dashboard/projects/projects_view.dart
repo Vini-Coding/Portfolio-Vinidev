@@ -31,19 +31,28 @@ class _ProjectsViewState extends State<ProjectsView> {
           ),
           const Spacer(),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.asset(
-                "assets/images/projects/protechtor_gear.png",
-                height: screenSize.height * 0.55,
+              Expanded(
+                child: Image.asset(
+                  "assets/images/projects/protechtor_gear.png",
+                  height: screenSize.height * 0.55,
+                  fit: BoxFit.fitWidth,
+                ),
               ),
-              Image.asset(
-                "assets/images/projects/bmi_check.png",
-                height: screenSize.height * 0.55,
+              Expanded(
+                child: Image.asset(
+                  "assets/images/projects/bmi_check.png",
+                  height: screenSize.height * 0.55,
+                  fit: BoxFit.fitWidth,
+                ),
               ),
-              Image.asset(
-                "assets/images/projects/plus+.png",
-                height: screenSize.height * 0.55,
+              Expanded(
+                child: Image.asset(
+                  "assets/images/projects/plus+.png",
+                  height: screenSize.height * 0.55,
+                  fit: BoxFit.fitWidth,
+                ),
               ),
             ],
           ),
