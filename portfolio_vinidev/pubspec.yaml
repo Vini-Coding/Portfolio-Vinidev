@@ -29,6 +29,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/cv/
     - assets/images/dash/
     - assets/images/projects/
     - assets/images/logo/

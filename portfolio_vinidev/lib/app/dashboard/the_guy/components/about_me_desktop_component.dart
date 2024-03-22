@@ -86,7 +86,7 @@ class _AboutMeDesktopComponentState extends State<AboutMeDesktopComponent> {
               ),
               const TextSpan(text: " and the "),
               TextSpan(
-                text: "best experience",
+                text: "best experience ",
                 style: portfolioTheme.textTheme.bodySmall?.copyWith(
                   fontWeight: FontWeight.w900,
                   color: portfolioColorScheme.tertiary,

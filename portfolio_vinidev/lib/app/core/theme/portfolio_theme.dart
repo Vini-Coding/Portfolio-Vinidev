@@ -13,6 +13,12 @@ ThemeData portfolioTheme = ThemeData(
       fontSize: 40,
       color: portfolioColorScheme.onBackground,
     ),
+    displayMedium: TextStyle(
+      fontFamily: 'Compiler',
+      fontWeight: FontWeight.w800,
+      fontSize: 40,
+      color: portfolioColorScheme.onBackground,
+    ),
     headlineLarge: TextStyle(
       fontFamily: "Compiler",
       fontWeight: FontWeight.w900,

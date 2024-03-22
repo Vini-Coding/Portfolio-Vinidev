@@ -130,10 +130,13 @@ class _TheGuyViewState extends State<TheGuyView> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset('assets/images/dash/dash_the_guy.png'),
+                Expanded(
+                  child: Image.asset('assets/images/dash/dash_the_guy.png'),
+                ),
                 InkWell(
                   onTap: () {
-                    AnchorElement anchorElement = AnchorElement(href: "/assets/cv/cv.pdf");
+                    AnchorElement anchorElement =
+                        AnchorElement(href: "/assets/cv/cv.pdf");
                     anchorElement.download = "Vinícius Soares da Silva Melo";
                     anchorElement.click();
                   },

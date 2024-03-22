@@ -44,6 +44,7 @@ class ResponsiveLayoutBuilder extends StatelessWidget {
           );
         } else {
           return Container(
+            height: screenSize.height * 0.9,
             width: screenSize.width,
             alignment: Alignment.center,
             color: backgroundColor,

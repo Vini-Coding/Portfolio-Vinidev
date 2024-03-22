@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 import 'package:portfolio_vinidev/app/dashboard/home/home_view.dart';
+import 'package:portfolio_vinidev/app/dashboard/projects/projects_view.dart';
 import 'package:portfolio_vinidev/app/dashboard/the_guy/the_guy_view.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -25,11 +26,13 @@ class _DashboardPageState extends State<DashboardPage> {
   final List<String> menuItems = [
     "Home",
     "The Guy",
+    "Projects",
   ];
 
   final List<Widget> viewsList = [
     const HomeView(),
     const TheGuyView(),
+    const ProjectsView(),
   ];
 
   Future<void> scrollTo({required int indexView}) async {
