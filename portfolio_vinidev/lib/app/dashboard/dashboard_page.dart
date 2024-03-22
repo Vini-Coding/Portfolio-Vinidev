@@ -108,7 +108,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               style: portfolioTheme.textTheme.labelMedium
                                   ?.copyWith(
                                 fontWeight: FontWeight.w700,
-                                color: portfolioColorScheme.primary,
+                                color: portfolioColorScheme.onBackground,
                               ),
                             ),
                           ),
@@ -122,7 +122,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       shrinkWrap: true,
                     ),
                   ),
-                  SizedBox(width: screenSize.width * 0.015),
+                  SizedBox(width: screenSize.width * 0.025),
                 ],
               );
             } else {
