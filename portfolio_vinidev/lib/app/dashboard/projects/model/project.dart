@@ -7,6 +7,7 @@ class Project {
   final String githubURL;
   final String linkedinURL;
   final String minLogoPath;
+  final String applicationVideoPath;
   final Color primaryProjectColor;
 
   Project({
@@ -16,6 +17,7 @@ class Project {
     required this.githubURL,
     required this.linkedinURL,
     required this.minLogoPath,
+    required this.applicationVideoPath,
     required this.primaryProjectColor,
   });
 }

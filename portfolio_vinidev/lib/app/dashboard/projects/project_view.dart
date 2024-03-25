@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_color_scheme.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
+import 'package:portfolio_vinidev/app/dashboard/projects/component/video_player_widget.dart';
 import 'package:portfolio_vinidev/app/dashboard/projects/model/project.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -32,6 +33,7 @@ class _ProjectViewState extends State<ProjectView> {
       linkedinURL:
           "https://www.linkedin.com/feed/update/urn:li:activity:7073009128876482560/?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7073009128876482560%29",
       minLogoPath: 'assets/images/projects/min_protechtor_gear.png',
+      applicationVideoPath: 'assets/cv/video.mp4',
       primaryProjectColor: const Color(0xFF530149),
     ),
     Project(
@@ -44,6 +46,7 @@ class _ProjectViewState extends State<ProjectView> {
       linkedinURL:
           "https://www.linkedin.com/posts/vin%C3%ADcius-soares-584075255_flutter-dart-mobiledevelopment-activity-7063878350980734976-ebLK?utm_source=share&utm_medium=member_desktop",
       minLogoPath: 'assets/images/projects/min_bmi_check.png',
+      applicationVideoPath: 'assets/cv/video.mp4',
       primaryProjectColor: const Color(0xFF1ACB21),
     ),
     Project(
@@ -56,6 +59,7 @@ class _ProjectViewState extends State<ProjectView> {
       linkedinURL:
           "https://www.linkedin.com/posts/vin%C3%ADcius-soares-584075255_plus-application-demo-video-the-plus-application-activity-6999016679712133120-jQY_?utm_source=share&utm_medium=member_desktop",
       minLogoPath: 'assets/images/projects/min_plus+.png',
+      applicationVideoPath: 'assets/cv/video.mp4',
       primaryProjectColor: const Color(0xFFBD2020),
     ),
   ];
@@ -206,7 +210,30 @@ class _ProjectViewState extends State<ProjectView> {
           ),
         ),
         SizedBox(width: screenSize.width * 0.09),
-        Image.asset("assets/images/projects/cellphone.png"),
+        SizedBox(
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              SizedBox(
+                height: screenSize.height * 0.7,
+                width: screenSize.width * 0.15,
+                child: VideoPlayerWidget(
+                  videoUrl: projects[currentProjectIndex].applicationVideoPath,
+                ),
+              ),
+              Container(
+                height: screenSize.height * 0.9,
+                width: screenSize.width * 0.2,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/projects/cellphone.png'),
+                    fit: BoxFit.fitHeight,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
         SizedBox(width: screenSize.width * 0.09),
         InkWell(
           onTap: () {
