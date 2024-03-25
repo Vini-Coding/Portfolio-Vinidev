@@ -31,6 +31,7 @@ class _ProjectCardComponentState extends State<ProjectCardComponent> {
 
     return Expanded(
       child: MouseRegion(
+        cursor: SystemMouseCursors.click,
         onEnter: (event) => setState(
           (() => isVisible = true),
         ),
