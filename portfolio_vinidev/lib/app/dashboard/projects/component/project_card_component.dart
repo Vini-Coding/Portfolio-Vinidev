@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_vinidev/app/core/components/default_text_button_widget.dart';
+import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_color_scheme.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 
 class ProjectCardComponent extends StatefulWidget {
+  final void Function()? onTap;
   final String imagePath;
-  final String projectName;
-  final String projectDescription;
   final Color primaryProjectColor;
-  final Color secondaryProjectColor;
+
   const ProjectCardComponent({
     super.key,
+    required this.onTap,
     required this.imagePath,
-    required this.projectName,
-    required this.projectDescription,
     required this.primaryProjectColor,
-    required this.secondaryProjectColor,
   });
 
   @override
@@ -23,69 +21,63 @@ class ProjectCardComponent extends StatefulWidget {
 }
 
 class _ProjectCardComponentState extends State<ProjectCardComponent> {
-  bool isVisible = false;
-
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
 
-    return Expanded(
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        onEnter: (event) => setState(
-          (() => isVisible = true),
-        ),
-        onExit: (event) => setState(
-          (() => isVisible = false),
-        ),
-        child: Container(
-          height: screenSize.height * 0.55,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(widget.imagePath),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Visibility(
-            visible: isVisible,
-            replacement: const SizedBox(),
-            child: Container(
-              height: screenSize.height * 0.55,
-              color: Colors.black.withOpacity(0.7),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    widget.projectName,
-                    style: portfolioTheme.textTheme.headlineMedium!.copyWith(
-                      color: portfolioColorScheme.background,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      vertical: screenSize.height * 0.04,
-                      horizontal: screenSize.width * 0.03,
-                    ),
-                    child: Text(
-                      widget.projectDescription,
-                      style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                        fontSize: screenSize.width * 0.01,
-                      ),
-                      textAlign: TextAlign.justify,
-                      maxLines: 3,
-                    ),
-                  ),
-                  DefaultTextButtonWidget(
-                    text: "VIEW PROJECT",
-                    backgroundColor: widget.primaryProjectColor,
-                    textColor: widget.secondaryProjectColor,
-                    onTap: () {},
-                  ),
-                ],
+    return InkWell(
+      onTap: widget.onTap,
+      child: SizedBox(
+        child: Column(
+          children: [
+            Container(
+              height: screenSize.height * 0.45,
+              width: screenSize.width * 0.3,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(widget.imagePath),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(10),
+                  topLeft: Radius.circular(10),
+                ),
               ),
             ),
-          ),
+            Container(
+              height: screenSize.height * 0.05,
+              width: screenSize.width * 0.3,
+              decoration: BoxDecoration(
+                color: widget.primaryProjectColor,
+                borderRadius: const BorderRadius.only(
+                  bottomRight: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                ),
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: screenSize.width * 0.02,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Check project",
+                      style: portfolioTheme.textTheme.bodySmall?.copyWith(
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    const Spacer(),
+                    FaIcon(
+                      FontAwesomeIcons.chevronRight,
+                      size: screenSize.width * 0.01,
+                      color: portfolioColorScheme.background,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
