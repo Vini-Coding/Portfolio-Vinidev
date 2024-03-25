@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_vinidev/app/core/components/default_text_button_widget.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_color_scheme.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 import 'package:portfolio_vinidev/app/core/utils/responsive_layout_builder.dart';
@@ -133,29 +134,14 @@ class _TheGuyViewState extends State<TheGuyView> {
                 Expanded(
                   child: Image.asset('assets/images/dash/dash_the_guy.png'),
                 ),
-                InkWell(
+                DefaultTextButtonWidget(
+                  text: "DOWNLOAD CV",
                   onTap: () {
                     AnchorElement anchorElement =
                         AnchorElement(href: "/assets/cv/cv.pdf");
                     anchorElement.download = "Vinícius Soares da Silva Melo";
                     anchorElement.click();
                   },
-                  child: Container(
-                    height: screenSize.height * 0.06,
-                    width: screenSize.width * 0.17,
-                    decoration: BoxDecoration(
-                      color: portfolioColorScheme.tertiaryContainer,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "DOWNLOAD CV",
-                        style: portfolioTheme.textTheme.labelLarge!.copyWith(
-                          fontSize: screenSize.width * 0.015,
-                        ),
-                      ),
-                    ),
-                  ),
                 ),
               ],
             ),
