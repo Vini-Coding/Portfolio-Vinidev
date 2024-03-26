@@ -43,10 +43,22 @@ class _ProjectsViewState extends State<ProjectsView> {
               "Projects",
               style: portfolioTheme.textTheme.displayMedium,
             ),
-            Text(
-              "Let's check this in practice.",
-              style: portfolioTheme.textTheme.bodyMedium?.copyWith(
-                fontWeight: FontWeight.w800,
+            Text.rich(
+              TextSpan(
+                text: "Let's ",
+                style: portfolioTheme.textTheme.bodyMedium?.copyWith(
+                  fontWeight: FontWeight.w800,
+                ),
+                children: [
+                  TextSpan(
+                    text: "check ",
+                    style: portfolioTheme.textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w900,
+                      color: portfolioTheme.primaryColor,
+                    ),
+                  ),
+                  const TextSpan(text: "this in practice."),
+                ],
               ),
             ),
             const Spacer(),
