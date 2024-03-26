@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 import 'package:portfolio_vinidev/app/core/utils/responsive_layout_builder.dart';
 import 'package:portfolio_vinidev/app/dashboard/projects/component/project_card_component.dart';
-import 'package:portfolio_vinidev/app/dashboard/projects/component/video_player_widget.dart';
 import 'package:portfolio_vinidev/app/dashboard/projects/project_view.dart';
 
 class ProjectsView extends StatefulWidget {

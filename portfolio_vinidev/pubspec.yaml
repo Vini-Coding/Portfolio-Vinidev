@@ -34,7 +34,10 @@ flutter:
     - assets/images/dash/
     - assets/images/projects/
     - assets/images/logo/
-    - assets/cv/video.mp4
+    - assets/videos/protechtor_gear.mp4
+    - assets/videos/bmi_check.mp4
+    - assets/videos/plus+.mp4
+    
 
   fonts:
     - family: Compiler

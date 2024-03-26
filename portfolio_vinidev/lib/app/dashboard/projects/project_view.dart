@@ -33,7 +33,7 @@ class _ProjectViewState extends State<ProjectView> {
       linkedinURL:
           "https://www.linkedin.com/feed/update/urn:li:activity:7073009128876482560/?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7073009128876482560%29",
       minLogoPath: 'assets/images/projects/min_protechtor_gear.png',
-      applicationVideoPath: 'assets/cv/video.mp4',
+      applicationVideoPath: 'assets/videos/protechtor_gear.mp4',
       primaryProjectColor: const Color(0xFF530149),
     ),
     Project(
@@ -46,7 +46,7 @@ class _ProjectViewState extends State<ProjectView> {
       linkedinURL:
           "https://www.linkedin.com/posts/vin%C3%ADcius-soares-584075255_flutter-dart-mobiledevelopment-activity-7063878350980734976-ebLK?utm_source=share&utm_medium=member_desktop",
       minLogoPath: 'assets/images/projects/min_bmi_check.png',
-      applicationVideoPath: 'assets/cv/video.mp4',
+      applicationVideoPath: 'assets/videos/bmi_check.mp4',
       primaryProjectColor: const Color(0xFF1ACB21),
     ),
     Project(
@@ -59,7 +59,7 @@ class _ProjectViewState extends State<ProjectView> {
       linkedinURL:
           "https://www.linkedin.com/posts/vin%C3%ADcius-soares-584075255_plus-application-demo-video-the-plus-application-activity-6999016679712133120-jQY_?utm_source=share&utm_medium=member_desktop",
       minLogoPath: 'assets/images/projects/min_plus+.png',
-      applicationVideoPath: 'assets/cv/video.mp4',
+      applicationVideoPath: 'assets/videos/plus+.mp4',
       primaryProjectColor: const Color(0xFFBD2020),
     ),
   ];
@@ -214,16 +214,25 @@ class _ProjectViewState extends State<ProjectView> {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              SizedBox(
-                height: screenSize.height * 0.7,
-                width: screenSize.width * 0.15,
-                child: VideoPlayerWidget(
-                  videoUrl: projects[currentProjectIndex].applicationVideoPath,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(screenSize.width * 0.015),
+                child: Padding(
+                  padding: EdgeInsets.only(right: screenSize.width * 0.004),
+                  child: SizedBox(
+                    height: screenSize.height * 0.68,
+                    width: screenSize.width * 0.15,
+                    child: VideoPlayerWidget(
+                      videoUrl:
+                          projects[currentProjectIndex].applicationVideoPath,
+                      progressIndicatorColor:
+                          projects[currentProjectIndex].primaryProjectColor,
+                    ),
+                  ),
                 ),
               ),
               Container(
                 height: screenSize.height * 0.9,
-                width: screenSize.width * 0.2,
+                width: screenSize.width * 0.165,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/images/projects/cellphone.png'),
@@ -235,30 +244,30 @@ class _ProjectViewState extends State<ProjectView> {
           ),
         ),
         SizedBox(width: screenSize.width * 0.09),
-        InkWell(
-          onTap: () {
-            if (currentProjectIndex != 2) {
-              setState(() => currentProjectIndex++);
-            } else {
-              setState(() => currentProjectIndex = 0);
-            }
-          },
-          child: Container(
-            height: screenSize.width * 0.05,
-            width: screenSize.width * 0.05,
-            decoration: BoxDecoration(
-              color: projects[currentProjectIndex].primaryProjectColor,
-              borderRadius: BorderRadius.circular(screenSize.width * 1),
-            ),
-            child: Center(
-              child: FaIcon(
-                FontAwesomeIcons.arrowRight,
-                color: portfolioColorScheme.background,
-                size: screenSize.width * 0.03,
-              ),
-            ),
-          ),
-        ),
+        // InkWell(
+        //   onTap: () {
+        //     if (currentProjectIndex != 2) {
+        //       setState(() => currentProjectIndex++);
+        //     } else {
+        //       setState(() => currentProjectIndex = 0);
+        //     }
+        //   },
+        //   child: Container(
+        //     height: screenSize.width * 0.05,
+        //     width: screenSize.width * 0.05,
+        //     decoration: BoxDecoration(
+        //       color: projects[currentProjectIndex].primaryProjectColor,
+        //       borderRadius: BorderRadius.circular(screenSize.width * 1),
+        //     ),
+        //     child: Center(
+        //       child: FaIcon(
+        //         FontAwesomeIcons.arrowRight,
+        //         color: portfolioColorScheme.background,
+        //         size: screenSize.width * 0.03,
+        //       ),
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }

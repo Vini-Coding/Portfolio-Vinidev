@@ -3,9 +3,11 @@ import 'package:video_player/video_player.dart';
 
 class VideoPlayerWidget extends StatefulWidget {
   final String videoUrl;
+  final Color progressIndicatorColor;
   const VideoPlayerWidget({
     super.key,
     required this.videoUrl,
+    required this.progressIndicatorColor,
   });
 
   @override
@@ -46,8 +48,10 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
             child: VideoPlayer(_videoPlayerController),
           );
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
+          return Center(
+            child: CircularProgressIndicator(
+              color: widget.progressIndicatorColor,
+            ),
           );
         }
       },
