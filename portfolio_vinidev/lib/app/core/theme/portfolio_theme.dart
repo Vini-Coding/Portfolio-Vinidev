@@ -56,5 +56,11 @@ ThemeData portfolioTheme = ThemeData(
       fontSize: 16,
       color: portfolioColorScheme.onTertiary,
     ),
+    labelSmall: TextStyle(
+      fontFamily: "Compiler",
+      fontWeight: FontWeight.w900,
+      fontSize: 16,
+      color: portfolioColorScheme.tertiary,
+    ),
   ),
 );

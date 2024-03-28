@@ -5,6 +5,7 @@ import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 import 'package:portfolio_vinidev/app/core/utils/responsive_layout_builder.dart';
 import 'package:portfolio_vinidev/app/dashboard/the_guy/components/about_me_desktop_component.dart';
 import 'package:portfolio_vinidev/app/dashboard/the_guy/components/skills_desktop_component.dart';
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:html';
 
 class TheGuyView extends StatefulWidget {
