@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 import 'package:portfolio_vinidev/app/dashboard/articles/articles_view.dart';
+import 'package:portfolio_vinidev/app/dashboard/contact/contact_view.dart';
 import 'package:portfolio_vinidev/app/dashboard/home/home_view.dart';
 import 'package:portfolio_vinidev/app/dashboard/projects/projects_view.dart';
 import 'package:portfolio_vinidev/app/dashboard/the_guy/the_guy_view.dart';
@@ -29,6 +30,7 @@ class _DashboardPageState extends State<DashboardPage> {
     "The Guy",
     "Projects",
     "Articles",
+    "Contact",
   ];
 
   final List<Widget> viewsList = [
@@ -36,6 +38,7 @@ class _DashboardPageState extends State<DashboardPage> {
     const TheGuyView(),
     const ProjectsView(),
     const ArticlesView(),
+    const ContactView(),
   ];
 
   Future<void> scrollTo({required int indexView}) async {
