@@ -31,6 +31,20 @@ class _DefaultTextButtonWidgetState extends State<DefaultTextButtonWidget> {
         decoration: BoxDecoration(
           color: widget.backgroundColor,
           borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              spreadRadius: 3,
+              blurRadius: 5,
+              offset: const Offset(5, 0),
+            ),
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              spreadRadius: 3,
+              blurRadius: 5,
+              offset: const Offset(-5, 0),
+            ),
+          ],
         ),
         child: Center(
           child: Text(

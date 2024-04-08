@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_vinidev/app/core/components/default_text_button_widget.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_color_scheme.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 import 'package:portfolio_vinidev/app/core/utils/responsive_layout_builder.dart';
+import 'package:portfolio_vinidev/app/dashboard/contact/components/contact_textfield_component.dart';
 
 class ContactView extends StatefulWidget {
   const ContactView({super.key});
@@ -11,8 +13,8 @@ class ContactView extends StatefulWidget {
 }
 
 class _ContactViewState extends State<ContactView> {
-  final GlobalKey _formKey = GlobalKey<FormState>();
-
+  final formKey = GlobalKey<FormState>();
+  final TextEditingController nameTextController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -20,11 +22,11 @@ class _ContactViewState extends State<ContactView> {
       backgroundColor: portfolioColorScheme.primary,
       desktop: Center(
         child: Container(
-          height: screenSize.height * 0.99,
-          width: screenSize.width * 0.99,
+          height: screenSize.height * 1,
+          width: screenSize.width * 1,
           padding: EdgeInsets.symmetric(
             vertical: screenSize.height * 0.02,
-            horizontal: screenSize.width * 0.02,
+            horizontal: screenSize.width * 0.05,
           ),
           decoration: BoxDecoration(
             color: portfolioColorScheme.onBackground,
@@ -47,29 +49,82 @@ class _ContactViewState extends State<ContactView> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: screenSize.height * 0.04),
-                  Text(
-                    "Contact",
-                    style: portfolioTheme.textTheme.displayMedium?.copyWith(
-                      color: portfolioTheme.backgroundColor,
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: screenSize.height * 0.04),
+                    Text(
+                      "Contact",
+                      style: portfolioTheme.textTheme.displayMedium?.copyWith(
+                        color: portfolioTheme.backgroundColor,
+                      ),
                     ),
-                  ),
-                  Text(
-                    "Get in the touch! Let’s bring your idea or business to your user’s fingertips with the best quality possible!",
-                    style: portfolioTheme.textTheme.bodyMedium?.copyWith(
-                      color: portfolioTheme.backgroundColor,
-                      fontSize: 12,
+                    Text(
+                      "Get in the touch! Let’s bring your idea or business to your user’s fingertips with the best quality possible!",
+                      style: portfolioTheme.textTheme.bodyMedium?.copyWith(
+                        color: portfolioTheme.backgroundColor,
+                        fontSize: 12,
+                      ),
+                      maxLines: 2,
                     ),
-                    maxLines: 2,
+                    Expanded(
+                      child: Image.asset('assets/images/dash/dash_contact.png'),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(width: screenSize.width * 0.02),
+              Expanded(
+                child: Form(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: screenSize.height * 0.01,
+                        ),
+                        child: Text.rich(
+                          TextSpan(
+                            text: "Your name (",
+                            style: portfolioTheme.textTheme.bodySmall!.copyWith(
+                              fontSize: 14,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: "required",
+                                style: portfolioTheme.textTheme.bodySmall!
+                                    .copyWith(
+                                  color: portfolioColorScheme.tertiary,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              const TextSpan(text: ")"),
+                            ],
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                      ContactTextfieldComponent(
+                        hintText: "EX: Dwight Schrute",
+                        errorText: "Invalid name, use your real name.",
+                        textController: nameTextController,
+                        keyboardType: TextInputType.name,
+                      ),
+                      SizedBox(height: screenSize.height * 0.02),
+                      Center(
+                        child: DefaultTextButtonWidget(
+                          text: "SEND",
+                          onTap: () {
+                            if (formKey.currentState!.validate()) {}
+                          },
+                        ),
+                      ),
+                    ],
                   ),
-                  Expanded(
-                    child: Image.asset('assets/images/dash/dash_contact.png'),
-                  ),
-                ],
+                ),
               ),
             ],
           ),
