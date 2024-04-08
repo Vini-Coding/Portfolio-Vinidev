@@ -4,15 +4,17 @@ import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 
 class ContactTextfieldComponent extends StatefulWidget {
   final String hintText;
-  final String errorText;
+  final String? errorText;
   final TextEditingController textController;
   final TextInputType keyboardType;
+  final String? Function(String?)? validator;
   const ContactTextfieldComponent({
     super.key,
     required this.hintText,
-    required this.errorText,
+    this.errorText,
     required this.textController,
     required this.keyboardType,
+    required this.validator,
   });
 
   @override
@@ -28,13 +30,7 @@ class _ContactTextfieldComponentState extends State<ContactTextfieldComponent> {
     return TextFormField(
       controller: widget.textController,
       autocorrect: true,
-      validator: (value) {
-        if (value != null) {
-          return "mensagem de erro relacionada a validação do if";
-        } else {
-          return null;
-        }
-      },
+      validator: widget.validator,
       keyboardType: widget.keyboardType,
       style: portfolioTheme.textTheme.bodySmall!.copyWith(
         fontSize: 14,
