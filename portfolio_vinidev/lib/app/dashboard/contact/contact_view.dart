@@ -4,6 +4,7 @@ import 'package:portfolio_vinidev/app/core/theme/portfolio_color_scheme.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 import 'package:portfolio_vinidev/app/core/utils/responsive_layout_builder.dart';
 import 'package:portfolio_vinidev/app/dashboard/contact/components/contact_textfield_component.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactView extends StatefulWidget {
   const ContactView({super.key});
@@ -209,9 +210,15 @@ class _ContactViewState extends State<ContactView> {
                       Center(
                         child: DefaultTextButtonWidget(
                           text: "SEND",
-                          onTap: () {
+                          onTap: () async {
+                            Uri uri = Uri.parse(
+                              'mailto:vinicius.coding@gmail.com?subject=${subjectTextController.text}&body=${messageTextController.text}. ${nameTextController.text}, ${emailTextController.text}.',
+                            );
                             if (formKey.currentState!.validate()) {
-                            } else {}
+                              if (await canLaunchUrl(uri)) {
+                                launchUrl(uri);
+                              }
+                            }
                           },
                         ),
                       ),
