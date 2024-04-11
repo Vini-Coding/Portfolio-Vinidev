@@ -118,13 +118,6 @@ class _ContactViewState extends State<ContactView> {
                         errorText: "Invalid name, use your real name.",
                         textController: nameTextController,
                         keyboardType: TextInputType.name,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "This textfield is required!";
-                          } else {
-                            return null;
-                          }
-                        },
                       ),
                       SizedBox(height: screenSize.height * 0.02),
                       Padding(
@@ -154,16 +147,9 @@ class _ContactViewState extends State<ContactView> {
                       ),
                       ContactTextfieldComponent(
                         hintText: "EX: dwightschrute@gmail.com",
-                        errorText: "Invalid email, use your real email.",
+                        errorText: "Invalid email, use your real email!",
                         textController: emailTextController,
                         keyboardType: TextInputType.emailAddress,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "This textfield is required!";
-                          } else {
-                            return null;
-                          }
-                        },
                       ),
                       SizedBox(height: screenSize.height * 0.02),
                       Padding(
@@ -180,11 +166,9 @@ class _ContactViewState extends State<ContactView> {
                       ContactTextfieldComponent(
                         hintText:
                             "You can write your idea or business name here...",
+                        errorText: "This textfield is required!",
                         textController: subjectTextController,
                         keyboardType: TextInputType.text,
-                        validator: (value) {
-                          return null;
-                        },
                       ),
                       SizedBox(height: screenSize.height * 0.02),
                       Padding(
@@ -215,16 +199,10 @@ class _ContactViewState extends State<ContactView> {
                       Expanded(
                         child: ContactTextfieldComponent(
                           hintText: "Write your message here...",
+                          errorText: "Invalid message, fill the textfield!",
                           textController: messageTextController,
                           keyboardType: TextInputType.text,
                           isMessage: true,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "This textfield is required!";
-                            } else {
-                              return null;
-                            }
-                          },
                         ),
                       ),
                       SizedBox(height: screenSize.height * 0.03),
