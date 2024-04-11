@@ -8,6 +8,7 @@ class ContactTextfieldComponent extends StatefulWidget {
   final TextEditingController textController;
   final TextInputType keyboardType;
   final String? Function(String?)? validator;
+  final bool? isMessage;
   const ContactTextfieldComponent({
     super.key,
     required this.hintText,
@@ -15,6 +16,7 @@ class ContactTextfieldComponent extends StatefulWidget {
     required this.textController,
     required this.keyboardType,
     required this.validator,
+    this.isMessage,
   });
 
   @override
@@ -33,28 +35,31 @@ class _ContactTextfieldComponentState extends State<ContactTextfieldComponent> {
       validator: widget.validator,
       keyboardType: widget.keyboardType,
       style: portfolioTheme.textTheme.bodySmall!.copyWith(
-        fontSize: 14,
+        fontSize: 12,
       ),
+      maxLines: 99,
       cursorColor: portfolioColorScheme.tertiary,
+      textAlign: TextAlign.start,
+      textAlignVertical: TextAlignVertical.center,
       decoration: InputDecoration(
         filled: true,
         fillColor: const Color(0xFF4B4B4B),
         constraints: BoxConstraints(
-          maxHeight: screenSize.height * 0.07,
+          maxHeight: widget.isMessage != null ? 0 : screenSize.height * 0.055,
           maxWidth: screenSize.width,
-          minHeight: screenSize.height * 0.07,
-          minWidth: screenSize.width * 0.4,
+          minHeight: widget.isMessage != null ? 0 : screenSize.height * 0.05,
+          minWidth: screenSize.width,
         ),
         contentPadding: EdgeInsets.symmetric(
           vertical: screenSize.height * 0.02,
-          horizontal: screenSize.width * 0.02,
+          horizontal: screenSize.width * 0.015,
         ),
         errorStyle: portfolioTheme.textTheme.bodySmall!.copyWith(
           color: portfolioColorScheme.error,
         ),
         hintText: widget.hintText,
         hintStyle: portfolioTheme.textTheme.bodySmall!.copyWith(
-          fontSize: 14,
+          fontSize: 12,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),

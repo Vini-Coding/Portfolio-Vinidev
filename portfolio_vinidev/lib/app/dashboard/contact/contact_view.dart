@@ -17,6 +17,7 @@ class _ContactViewState extends State<ContactView> {
   final TextEditingController nameTextController = TextEditingController();
   final TextEditingController emailTextController = TextEditingController();
   final TextEditingController subjectTextController = TextEditingController();
+  final TextEditingController messageTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +58,7 @@ class _ContactViewState extends State<ContactView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: screenSize.height * 0.04),
+                    SizedBox(height: screenSize.height * 0.03),
                     Text(
                       "Contact",
                       style: portfolioTheme.textTheme.displayMedium?.copyWith(
@@ -86,6 +87,7 @@ class _ContactViewState extends State<ContactView> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      SizedBox(height: screenSize.height * 0.03),
                       Padding(
                         padding: EdgeInsets.symmetric(
                           vertical: screenSize.height * 0.01,
@@ -94,7 +96,7 @@ class _ContactViewState extends State<ContactView> {
                           TextSpan(
                             text: "Your name (",
                             style: portfolioTheme.textTheme.bodySmall!.copyWith(
-                              fontSize: 14,
+                              fontSize: 12,
                             ),
                             children: [
                               TextSpan(
@@ -102,7 +104,7 @@ class _ContactViewState extends State<ContactView> {
                                 style: portfolioTheme.textTheme.bodySmall!
                                     .copyWith(
                                   color: portfolioColorScheme.tertiary,
-                                  fontSize: 14,
+                                  fontSize: 12,
                                 ),
                               ),
                               const TextSpan(text: ")"),
@@ -111,20 +113,18 @@ class _ContactViewState extends State<ContactView> {
                           textAlign: TextAlign.left,
                         ),
                       ),
-                      Expanded(
-                        child: ContactTextfieldComponent(
-                          hintText: "EX: Dwight Schrute",
-                          errorText: "Invalid name, use your real name.",
-                          textController: nameTextController,
-                          keyboardType: TextInputType.name,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "This textfield is required!";
-                            } else {
-                              return null;
-                            }
-                          },
-                        ),
+                      ContactTextfieldComponent(
+                        hintText: "EX: Dwight Schrute",
+                        errorText: "Invalid name, use your real name.",
+                        textController: nameTextController,
+                        keyboardType: TextInputType.name,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "This textfield is required!";
+                          } else {
+                            return null;
+                          }
+                        },
                       ),
                       SizedBox(height: screenSize.height * 0.02),
                       Padding(
@@ -135,7 +135,7 @@ class _ContactViewState extends State<ContactView> {
                           TextSpan(
                             text: "Your email (",
                             style: portfolioTheme.textTheme.bodySmall!.copyWith(
-                              fontSize: 14,
+                              fontSize: 12,
                             ),
                             children: [
                               TextSpan(
@@ -143,7 +143,67 @@ class _ContactViewState extends State<ContactView> {
                                 style: portfolioTheme.textTheme.bodySmall!
                                     .copyWith(
                                   color: portfolioColorScheme.tertiary,
-                                  fontSize: 14,
+                                  fontSize: 12,
+                                ),
+                              ),
+                              const TextSpan(text: ")"),
+                            ],
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                      ContactTextfieldComponent(
+                        hintText: "EX: dwightschrute@gmail.com",
+                        errorText: "Invalid email, use your real email.",
+                        textController: emailTextController,
+                        keyboardType: TextInputType.emailAddress,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "This textfield is required!";
+                          } else {
+                            return null;
+                          }
+                        },
+                      ),
+                      SizedBox(height: screenSize.height * 0.02),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: screenSize.height * 0.01,
+                        ),
+                        child: Text(
+                          "Subject",
+                          style: portfolioTheme.textTheme.bodySmall!.copyWith(
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                      ContactTextfieldComponent(
+                        hintText:
+                            "You can write your idea or business name here...",
+                        textController: subjectTextController,
+                        keyboardType: TextInputType.text,
+                        validator: (value) {
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: screenSize.height * 0.02),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: screenSize.height * 0.01,
+                        ),
+                        child: Text.rich(
+                          TextSpan(
+                            text: "Your message (",
+                            style: portfolioTheme.textTheme.bodySmall!.copyWith(
+                              fontSize: 12,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: "required",
+                                style: portfolioTheme.textTheme.bodySmall!
+                                    .copyWith(
+                                  color: portfolioColorScheme.tertiary,
+                                  fontSize: 12,
                                 ),
                               ),
                               const TextSpan(text: ")"),
@@ -154,10 +214,10 @@ class _ContactViewState extends State<ContactView> {
                       ),
                       Expanded(
                         child: ContactTextfieldComponent(
-                          hintText: "EX: dwightschrute@gmail.com",
-                          errorText: "Invalid email, use your real email.",
-                          textController: emailTextController,
-                          keyboardType: TextInputType.emailAddress,
+                          hintText: "Write your message here...",
+                          textController: messageTextController,
+                          keyboardType: TextInputType.text,
+                          isMessage: true,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return "This textfield is required!";
@@ -167,37 +227,17 @@ class _ContactViewState extends State<ContactView> {
                           },
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          vertical: screenSize.height * 0.01,
-                        ),
-                        child: Text(
-                          "Subject",
-                          style: portfolioTheme.textTheme.bodySmall!.copyWith(
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: ContactTextfieldComponent(
-                          hintText:
-                              "You can write your idea or business name here...",
-                          textController: subjectTextController,
-                          keyboardType: TextInputType.text,
-                          validator: (value) {
-                            return null;
-                          },
-                        ),
-                      ),
-                      SizedBox(height: screenSize.height * 0.02),
+                      SizedBox(height: screenSize.height * 0.03),
                       Center(
                         child: DefaultTextButtonWidget(
                           text: "SEND",
                           onTap: () {
-                            if (formKey.currentState!.validate()) {}
+                            if (formKey.currentState!.validate()) {
+                            } else {}
                           },
                         ),
                       ),
+                      SizedBox(height: screenSize.height * 0.02),
                     ],
                   ),
                 ),
