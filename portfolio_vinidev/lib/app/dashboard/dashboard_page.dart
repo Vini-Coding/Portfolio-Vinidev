@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio_vinidev/app/core/components/footer_component.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 import 'package:portfolio_vinidev/app/dashboard/articles/articles_view.dart';
 import 'package:portfolio_vinidev/app/dashboard/contact/contact_view.dart';
@@ -62,6 +63,23 @@ class _DashboardPageState extends State<DashboardPage> {
       menuIndex =
           _itemPositionsListener.itemPositions.value.iterator.current.index;
     });
+    viewsList.add(
+      FooterComponent(
+        onTap: () {
+          _itemScrollController
+              .scrollTo(
+            index: 0,
+            duration: const Duration(seconds: 2),
+            curve: Curves.fastLinearToSlowEaseIn,
+          )
+              .whenComplete(() {
+            setState(() {
+              menuIndex = 0;
+            });
+          });
+        },
+      ),
+    );
   }
 
   @override
