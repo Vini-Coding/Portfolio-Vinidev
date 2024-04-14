@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_color_scheme.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 
 class ContactTextfieldComponent extends StatefulWidget {
   final String hintText;
-  final String errorText;
   final TextEditingController textController;
   final TextInputType keyboardType;
   final bool? isMessage;
   const ContactTextfieldComponent({
     super.key,
     required this.hintText,
-    required this.errorText,
     required this.textController,
     required this.keyboardType,
     this.isMessage,
@@ -30,31 +27,6 @@ class _ContactTextfieldComponentState extends State<ContactTextfieldComponent> {
 
     return TextFormField(
       controller: widget.textController,
-      autocorrect: true,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Row(
-                children: [
-                  FaIcon(
-                    FontAwesomeIcons.circleExclamation,
-                    color: portfolioColorScheme.background,
-                    size: screenSize.width * 0.015,
-                  ),
-                  SizedBox(width: screenSize.width * 0.02),
-                  Text(
-                    widget.errorText,
-                    style: portfolioTheme.textTheme.bodySmall,
-                  ),
-                ],
-              ),
-              backgroundColor: portfolioColorScheme.errorContainer,
-            ),
-          );
-        }
-        return null;
-      },
       keyboardType: widget.keyboardType,
       style: portfolioTheme.textTheme.bodySmall!.copyWith(
         fontSize: 12,
