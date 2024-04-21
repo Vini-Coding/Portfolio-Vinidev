@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio_vinidev/app/core/components/footer_component.dart';
-import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
-import 'package:portfolio_vinidev/app/dashboard/articles/articles_view.dart';
-import 'package:portfolio_vinidev/app/dashboard/contact/contact_view.dart';
-import 'package:portfolio_vinidev/app/dashboard/home/home_view.dart';
-import 'package:portfolio_vinidev/app/dashboard/projects/projects_view.dart';
-import 'package:portfolio_vinidev/app/dashboard/the_guy/the_guy_view.dart';
+import 'package:portfolio_vinidev/app/core/utils/exports/views_exports.dart';
+import 'package:portfolio_vinidev/app/core/utils/exports/theme_exports.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-
-import '../core/theme/portfolio_color_scheme.dart';
 
 class DashboardPage extends StatefulWidget {
   static const routeName = '/';
@@ -112,17 +105,6 @@ class _DashboardPageState extends State<DashboardPage> {
                           },
                           borderRadius: BorderRadius.circular(100),
                           hoverColor: Colors.transparent,
-                          onHover: (value) {
-                            setState(
-                              () {
-                                if (value) {
-                                  menuIndex = index;
-                                } else {
-                                  menuIndex = 0;
-                                }
-                              },
-                            );
-                          },
                           child: AnimatedContainer(
                             duration: const Duration(milliseconds: 200),
                             transform: menuIndex == index ? onMenuHover : null,
