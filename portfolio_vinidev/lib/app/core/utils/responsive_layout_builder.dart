@@ -22,6 +22,7 @@ class ResponsiveLayoutBuilder extends StatelessWidget {
       builder: (context, constraints) {
         if (constraints.maxWidth < 768) {
           return Container(
+            height: screenSize.height * 0.9,
             width: screenSize.width,
             alignment: Alignment.center,
             color: backgroundColor,
@@ -33,6 +34,7 @@ class ResponsiveLayoutBuilder extends StatelessWidget {
           );
         } else if (constraints.maxWidth < 1200) {
           return Container(
+            height: screenSize.height * 0.9,
             width: screenSize.width,
             alignment: Alignment.center,
             color: backgroundColor,

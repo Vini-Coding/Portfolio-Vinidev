@@ -17,9 +17,10 @@ class _HomeMobileViewState extends State<HomeMobileView> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image.asset(
-          'assets/images/dash/dash_home.png',
-          width: screenSize.width * 0.9,
+        Expanded(
+          child: Image.asset(
+            'assets/images/dash/dash_home.png',
+          ),
         ),
         RichText(
           textAlign: TextAlign.start,
