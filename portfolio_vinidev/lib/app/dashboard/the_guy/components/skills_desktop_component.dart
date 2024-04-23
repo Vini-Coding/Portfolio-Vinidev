@@ -10,7 +10,7 @@ class SkillsDesktopComponent extends StatefulWidget {
     super.key,
     this.titleFontSize = 0.018,
     this.displayFontSize = 0.035,
-    this.bodyFontSize = 0.012,
+    this.bodyFontSize = 0.011,
   });
 
   @override

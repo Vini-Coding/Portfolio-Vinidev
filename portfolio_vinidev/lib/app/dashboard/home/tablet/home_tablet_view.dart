@@ -24,14 +24,14 @@ class _HomeTabletViewState extends State<HomeTabletView> {
                 textAlign: TextAlign.justify,
                 text: TextSpan(
                   style: portfolioTheme.textTheme.displayLarge?.copyWith(
-                    fontSize: screenSize.width * 0.03,
+                    fontSize: screenSize.width * 0.033,
                   ),
                   text: "Hello world, ",
                   children: [
                     TextSpan(
                       text: "you found it",
                       style: portfolioTheme.textTheme.displayLarge?.copyWith(
-                        fontSize: screenSize.width * 0.03,
+                        fontSize: screenSize.width * 0.033,
                         color: portfolioTheme.primaryColor,
                       ),
                     ),
@@ -44,7 +44,7 @@ class _HomeTabletViewState extends State<HomeTabletView> {
                 text: TextSpan(
                   style: portfolioTheme.textTheme.bodyMedium?.copyWith(
                     fontWeight: FontWeight.w800,
-                    fontSize: screenSize.width * 0.014,
+                    fontSize: screenSize.width * 0.016,
                   ),
                   text:
                       "If you are looking for someone who could bring your ideas and concepts to the fingertips of users with ",
@@ -53,7 +53,7 @@ class _HomeTabletViewState extends State<HomeTabletView> {
                       text: "maestry in Flutter",
                       style: portfolioTheme.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.w900,
-                        fontSize: screenSize.width * 0.014,
+                        fontSize: screenSize.width * 0.016,
                         color: portfolioTheme.primaryColor,
                       ),
                     ),
@@ -62,7 +62,7 @@ class _HomeTabletViewState extends State<HomeTabletView> {
                       text: "clean code ",
                       style: portfolioTheme.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.w900,
-                        fontSize: screenSize.width * 0.014,
+                        fontSize: screenSize.width * 0.016,
                         color: portfolioTheme.primaryColor,
                       ),
                     ),
@@ -71,7 +71,7 @@ class _HomeTabletViewState extends State<HomeTabletView> {
                       text: "best user experience as possible",
                       style: portfolioTheme.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.w900,
-                        fontSize: screenSize.width * 0.014,
+                        fontSize: screenSize.width * 0.016,
                         color: portfolioTheme.primaryColor,
                       ),
                     ),
@@ -82,9 +82,10 @@ class _HomeTabletViewState extends State<HomeTabletView> {
             ],
           ),
         ),
-        Image.asset(
-          'assets/images/dash/dash_home.png',
-          width: screenSize.width * 0.5,
+        Expanded(
+          child: Image.asset(
+            'assets/images/dash/dash_home.png',
+          ),
         ),
       ],
     );

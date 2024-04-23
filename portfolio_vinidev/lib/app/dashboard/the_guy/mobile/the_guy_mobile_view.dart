@@ -112,22 +112,21 @@ class _TheGuyMobileViewState extends State<TheGuyMobileView> {
             ],
           ),
         ),
-        SizedBox(height: screenSize.height * 0.03),
-        SizedBox(
-          height: screenSize.height * 0.55,
-          child: currentTabIndex == 0
-              ? const AboutMeDesktopComponent(
-                  titleFontSize: 0.052,
-                  displayFontSize: 0.085,
-                  bodyFontSize: 0.025,
-                )
-              : const SkillsDesktopComponent(
-                  titleFontSize: 0.052,
-                  displayFontSize: 0.085,
-                  bodyFontSize: 0.025,
-                ),
+        Expanded(
+          child: SizedBox(
+            child: currentTabIndex == 0
+                ? const AboutMeDesktopComponent(
+                    titleFontSize: 0.042,
+                    displayFontSize: 0.075,
+                    bodyFontSize: 0.023,
+                  )
+                : const SkillsDesktopComponent(
+                    titleFontSize: 0.042,
+                    displayFontSize: 0.075,
+                    bodyFontSize: 0.023,
+                  ),
+          ),
         ),
-        const Spacer(),
         Center(
           child: DefaultTextButtonWidget(
             text: "DOWNLOAD CV",

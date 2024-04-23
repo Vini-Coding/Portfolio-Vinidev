@@ -117,11 +117,12 @@ class _TheGuyDesktopViewState extends State<TheGuyDesktopView> {
                 ),
               ),
               SizedBox(height: screenSize.height * 0.03),
-              SizedBox(
-                height: screenSize.height * 0.62,
-                child: currentTabIndex == 0
-                    ? const AboutMeDesktopComponent()
-                    : const SkillsDesktopComponent(),
+              Expanded(
+                child: SizedBox(
+                  child: currentTabIndex == 0
+                      ? const AboutMeDesktopComponent()
+                      : const SkillsDesktopComponent(),
+                ),
               ),
             ],
           ),

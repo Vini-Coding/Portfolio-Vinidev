@@ -33,7 +33,7 @@ class _TheGuyTabletViewState extends State<TheGuyTabletView> {
         case 0:
           return 0;
         case 1:
-          return screenSize.width * 0.08;
+          return screenSize.width * 0.092;
         default:
           return 0;
       }
@@ -42,11 +42,11 @@ class _TheGuyTabletViewState extends State<TheGuyTabletView> {
     double changeLineWidth() {
       switch (currentTabIndex) {
         case 0:
-          return screenSize.width * 0.06;
+          return screenSize.width * 0.07;
         case 1:
-          return screenSize.width * 0.035;
+          return screenSize.width * 0.04;
         default:
-          return screenSize.width * 0.06;
+          return screenSize.width * 0.07;
       }
     }
 
@@ -59,7 +59,7 @@ class _TheGuyTabletViewState extends State<TheGuyTabletView> {
             children: [
               SizedBox(
                 width: screenSize.width,
-                height: screenSize.height * 0.045,
+                height: screenSize.height * 0.04,
                 child: Stack(
                   children: [
                     Positioned(
@@ -82,7 +82,7 @@ class _TheGuyTabletViewState extends State<TheGuyTabletView> {
                                 tabs[index],
                                 style: portfolioTheme.textTheme.bodySmall!
                                     .copyWith(
-                                  fontSize: screenSize.width * 0.011,
+                                  fontSize: screenSize.width * 0.013,
                                   fontWeight: currentTabIndex == index
                                       ? FontWeight.w800
                                       : FontWeight.w500,
@@ -91,7 +91,7 @@ class _TheGuyTabletViewState extends State<TheGuyTabletView> {
                             );
                           },
                           separatorBuilder: (context, index) => SizedBox(
-                            width: screenSize.width * 0.02,
+                            width: screenSize.width * 0.025,
                           ),
                         ),
                       ),
@@ -116,12 +116,21 @@ class _TheGuyTabletViewState extends State<TheGuyTabletView> {
                   ],
                 ),
               ),
-              SizedBox(height: screenSize.height * 0.03),
-              SizedBox(
-                height: screenSize.height * 0.62,
-                child: currentTabIndex == 0
-                    ? const AboutMeDesktopComponent()
-                    : const SkillsDesktopComponent(),
+              SizedBox(height: screenSize.height * 0.02),
+              Expanded(
+                child: SizedBox(
+                  child: currentTabIndex == 0
+                      ? const AboutMeDesktopComponent(
+                          titleFontSize: 0.025,
+                          displayFontSize: 0.045,
+                          bodyFontSize: 0.014,
+                        )
+                      : const SkillsDesktopComponent(
+                          titleFontSize: 0.025,
+                          displayFontSize: 0.045,
+                          bodyFontSize: 0.013,
+                        ),
+                ),
               ),
             ],
           ),
@@ -131,12 +140,15 @@ class _TheGuyTabletViewState extends State<TheGuyTabletView> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset('assets/images/dash/dash_the_guy.png',
-              width: screenSize.width * 0.8,
-              fit: BoxFit.fitWidth,
+              Image.asset(
+                'assets/images/dash/dash_the_guy.png',
+                width: screenSize.width * 0.8,
+                fit: BoxFit.fitWidth,
               ),
               DefaultTextButtonWidget(
                 text: "DOWNLOAD CV",
+                textFontSize: 0.022,
+                width: 0.25,
                 onTap: () {
                   AnchorElement anchorElement =
                       AnchorElement(href: "/assets/cv/cv.pdf");
