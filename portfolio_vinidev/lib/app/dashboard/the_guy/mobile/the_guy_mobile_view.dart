@@ -114,7 +114,7 @@ class _TheGuyMobileViewState extends State<TheGuyMobileView> {
         ),
         SizedBox(height: screenSize.height * 0.03),
         SizedBox(
-          height: screenSize.height * 0.5,
+          height: screenSize.height * 0.55,
           child: currentTabIndex == 0
               ? const AboutMeDesktopComponent(
                   titleFontSize: 0.052,

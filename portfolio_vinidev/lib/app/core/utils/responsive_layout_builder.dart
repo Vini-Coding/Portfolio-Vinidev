@@ -20,7 +20,7 @@ class ResponsiveLayoutBuilder extends StatelessWidget {
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth < 768) {
+        if (constraints.maxWidth < 528) {
           return Container(
             height: screenSize.height * 0.9,
             width: screenSize.width,

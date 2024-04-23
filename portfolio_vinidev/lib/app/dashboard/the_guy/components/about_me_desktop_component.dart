@@ -56,7 +56,7 @@ class _AboutMeDesktopComponentState extends State<AboutMeDesktopComponent> {
             ],
           ),
         ),
-        SizedBox(height: screenSize.height * 0.03),
+        SizedBox(height: screenSize.height * 0.02),
         RichText(
           textAlign: TextAlign.justify,
           maxLines: 8,

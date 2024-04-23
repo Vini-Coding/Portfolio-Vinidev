@@ -88,7 +88,7 @@ class _DashboardPageState extends State<DashboardPage> {
         scrolledUnderElevation: 0,
         title: LayoutBuilder(
           builder: (context, constraints) {
-            if (constraints.maxWidth > 768) {
+            if (constraints.maxWidth > 668) {
               return Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
