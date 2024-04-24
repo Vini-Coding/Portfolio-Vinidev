@@ -37,24 +37,25 @@ class _ProjectsMobileViewState extends State<ProjectsMobileView> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const Spacer(),
           Text(
             "Projects",
             style: portfolioTheme.textTheme.displayMedium?.copyWith(
-              fontSize: screenSize.width * 0.055,
+              fontSize: screenSize.width * 0.05,
             ),
           ),
           Text.rich(
             TextSpan(
               text: "Let's ",
               style: portfolioTheme.textTheme.bodyMedium?.copyWith(
-                fontSize: screenSize.width * 0.027,
+                fontSize: screenSize.width * 0.024,
                 fontWeight: FontWeight.w800,
               ),
               children: [
                 TextSpan(
                   text: "check ",
                   style: portfolioTheme.textTheme.bodyMedium?.copyWith(
-                    fontSize: screenSize.width * 0.027,
+                    fontSize: screenSize.width * 0.024,
                     fontWeight: FontWeight.w900,
                     color: portfolioTheme.primaryColor,
                   ),
@@ -69,7 +70,7 @@ class _ProjectsMobileViewState extends State<ProjectsMobileView> {
               projectSelectedIndex = 0;
               isProjectSelected = true;
             }),
-            height: 0.17,
+            height: 0.15,
             width: 0.9,
             labelHeight: 0.03,
             textFontSize: 0.02,
@@ -82,7 +83,7 @@ class _ProjectsMobileViewState extends State<ProjectsMobileView> {
               projectSelectedIndex = 1;
               isProjectSelected = true;
             }),
-            height: 0.17,
+            height: 0.15,
             width: 0.9,
             labelHeight: 0.03,
             textFontSize: 0.02,
@@ -95,7 +96,7 @@ class _ProjectsMobileViewState extends State<ProjectsMobileView> {
               projectSelectedIndex = 2;
               isProjectSelected = true;
             }),
-            height: 0.17,
+            height: 0.15,
             width: 0.9,
             labelHeight: 0.03,
             textFontSize: 0.02,
