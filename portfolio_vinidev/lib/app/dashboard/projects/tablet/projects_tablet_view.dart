@@ -71,6 +71,7 @@ class _ProjectsTabletViewState extends State<ProjectsTabletView> {
                   projectSelectedIndex = 0;
                   isProjectSelected = true;
                 }),
+                iconSize: 0.015,
                 textFontSize: 0.016,
                 imagePath: 'assets/images/projects/protechtor_gear.png',
                 primaryProjectColor: const Color(0xFFFCA349),
@@ -81,6 +82,7 @@ class _ProjectsTabletViewState extends State<ProjectsTabletView> {
                   projectSelectedIndex = 1;
                   isProjectSelected = true;
                 }),
+                iconSize: 0.015,
                 textFontSize: 0.016,
                 imagePath: 'assets/images/projects/bmi_check.png',
                 primaryProjectColor: const Color(0xFF3D3A4D),
@@ -91,6 +93,7 @@ class _ProjectsTabletViewState extends State<ProjectsTabletView> {
                   projectSelectedIndex = 2;
                   isProjectSelected = true;
                 }),
+                iconSize: 0.015,
                 textFontSize: 0.016,
                 imagePath: 'assets/images/projects/plus+.png',
                 primaryProjectColor: const Color(0xFFFF3838),

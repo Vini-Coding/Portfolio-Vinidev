@@ -10,6 +10,7 @@ class ProjectCardComponent extends StatefulWidget {
   final double height;
   final double labelHeight;
   final double width;
+  final double iconSize;
   final double textFontSize;
 
   const ProjectCardComponent({
@@ -20,6 +21,7 @@ class ProjectCardComponent extends StatefulWidget {
     this.height = 0.45,
     this.labelHeight = 0.05,
     this.width = 0.3,
+    this.iconSize = 0.01,
     this.textFontSize = 0.012,
   });
 
@@ -78,7 +80,7 @@ class _ProjectCardComponentState extends State<ProjectCardComponent> {
                     const Spacer(),
                     FaIcon(
                       FontAwesomeIcons.chevronRight,
-                      size: screenSize.width * 0.01,
+                      size: screenSize.width * widget.iconSize,
                       color: portfolioColorScheme.background,
                     ),
                   ],
