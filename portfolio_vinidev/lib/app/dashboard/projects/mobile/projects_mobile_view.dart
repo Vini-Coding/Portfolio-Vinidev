@@ -41,21 +41,21 @@ class _ProjectsMobileViewState extends State<ProjectsMobileView> {
           Text(
             "Projects",
             style: portfolioTheme.textTheme.displayMedium?.copyWith(
-              fontSize: screenSize.width * 0.05,
+              fontSize: 35,
             ),
           ),
           Text.rich(
             TextSpan(
               text: "Let's ",
               style: portfolioTheme.textTheme.bodyMedium?.copyWith(
-                fontSize: screenSize.width * 0.024,
+                fontSize:12,
                 fontWeight: FontWeight.w800,
               ),
               children: [
                 TextSpan(
                   text: "check ",
                   style: portfolioTheme.textTheme.bodyMedium?.copyWith(
-                    fontSize: screenSize.width * 0.024,
+                    fontSize: 12,
                     fontWeight: FontWeight.w900,
                     color: portfolioTheme.primaryColor,
                   ),
@@ -111,6 +111,12 @@ class _ProjectsMobileViewState extends State<ProjectsMobileView> {
       child: ProjectView(
         projectIndex: projectSelectedIndex,
         onBack: () => setState(() => isProjectSelected = false),
+        isMobile: true,
+        titleFontSize: 30,
+        projectTitleFontSize: 18,
+        bodyFontSize: 12,
+        linkIconSize: 0.03,
+        backIconSize: 0.04,
       ),
     );
   }
