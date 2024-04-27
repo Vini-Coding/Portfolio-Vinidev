@@ -146,7 +146,7 @@ class _ProjectViewState extends State<ProjectView> {
                       ),
                       icon: FaIcon(
                         FontAwesomeIcons.github,
-                        size: screenSize.width * 0.02,
+                        size: screenSize.width * widget.linkIconSize,
                         color: portfolioColorScheme.onBackground,
                       ),
                     ),
@@ -158,14 +158,14 @@ class _ProjectViewState extends State<ProjectView> {
                       ),
                       icon: FaIcon(
                         FontAwesomeIcons.linkedin,
-                        size: screenSize.width * 0.02,
+                        size: screenSize.width * widget.linkIconSize,
                         color: portfolioColorScheme.onBackground,
                       ),
                     ),
                     SizedBox(width: screenSize.width * 0.005),
                     Image.asset(
                       'assets/images/projects/flutter_logo.png',
-                      width: screenSize.width * 0.02,
+                      width: screenSize.width * widget.linkIconSize,
                     ),
                   ],
                 ),
