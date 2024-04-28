@@ -16,7 +16,7 @@ class ProjectsView extends StatefulWidget {
 class _ProjectsViewState extends State<ProjectsView> {
   @override
   Widget build(BuildContext context) {
-    return ResponsiveLayoutBuilder(
+    return ResponsiveLayoutBuilder( 
       backgroundColor: portfolioTheme.backgroundColor,
       desktop: const ProjectsDesktopView(),
       tablet: const ProjectsTabletView(),

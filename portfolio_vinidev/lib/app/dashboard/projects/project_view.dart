@@ -14,6 +14,7 @@ class ProjectView extends StatefulWidget {
   final double bodyFontSize;
   final double linkIconSize;
   final double backIconSize;
+  final double videoRightPadding;
   final bool isMobile;
   const ProjectView({
     super.key,
@@ -24,6 +25,7 @@ class ProjectView extends StatefulWidget {
     this.bodyFontSize = 16,
     this.linkIconSize = 0.016,
     this.backIconSize = 0.025,
+    this.videoRightPadding = 0.004,
     this.isMobile = false,
   });
 
@@ -291,7 +293,7 @@ class _ProjectViewState extends State<ProjectView> {
                   borderRadius: BorderRadius.circular(screenSize.width * 0.015),
                   child: Padding(
                     padding: EdgeInsets.only(
-                      right: screenSize.width * 0.004,
+                      right: screenSize.width * widget.videoRightPadding,
                       top: screenSize.height * 0.02,
                       bottom: screenSize.height * 0.02,
                     ),

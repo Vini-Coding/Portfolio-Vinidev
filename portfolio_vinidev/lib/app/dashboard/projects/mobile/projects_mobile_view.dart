@@ -48,7 +48,7 @@ class _ProjectsMobileViewState extends State<ProjectsMobileView> {
             TextSpan(
               text: "Let's ",
               style: portfolioTheme.textTheme.bodyMedium?.copyWith(
-                fontSize:12,
+                fontSize: 12,
                 fontWeight: FontWeight.w800,
               ),
               children: [
@@ -117,6 +117,7 @@ class _ProjectsMobileViewState extends State<ProjectsMobileView> {
         bodyFontSize: 12,
         linkIconSize: 0.03,
         backIconSize: 0.04,
+        videoRightPadding: 0.01,
       ),
     );
   }

@@ -111,6 +111,7 @@ class _ProjectsTabletViewState extends State<ProjectsTabletView> {
         bodyFontSize: 14,
         linkIconSize: 0.02,
         backIconSize: 0.03,
+        videoRightPadding: 0.007,
       ),
     );
   }
