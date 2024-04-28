@@ -9,6 +9,12 @@ class ArticleCardComponent extends StatefulWidget {
   final String topic;
   final String readTime;
   final void Function()? onTap;
+  final double height;
+  final double width;
+  final double titleFontSize;
+  final double infosFontSize;
+  final double stackademicLabelWidth;
+  final double ctaFontSize;
   const ArticleCardComponent({
     super.key,
     required this.title,
@@ -16,6 +22,12 @@ class ArticleCardComponent extends StatefulWidget {
     required this.topic,
     required this.readTime,
     required this.onTap,
+    this.height = 0.15,
+    this.width = 0.3,
+    this.titleFontSize = 18,
+    this.infosFontSize = 10,
+    this.stackademicLabelWidth = 0.07,
+    this.ctaFontSize = 14,
   });
 
   @override
@@ -32,8 +44,8 @@ class _ArticleCardComponentState extends State<ArticleCardComponent> {
         child: Column(
           children: [
             Container(
-              height: screenSize.height * 0.15,
-              width: screenSize.width * 0.3,
+              height: screenSize.height * widget.height,
+              width: screenSize.width * widget.width,
               padding: EdgeInsets.symmetric(
                 vertical: screenSize.height * 0.01,
                 horizontal: screenSize.width * 0.01,
@@ -51,11 +63,11 @@ class _ArticleCardComponentState extends State<ArticleCardComponent> {
                 children: [
                   Text(
                     widget.title.toUpperCase(),
-                    maxLines: 2,
+                    maxLines: 3,
                     style: portfolioTheme.textTheme.displayMedium?.copyWith(
                       height: 1,
                       overflow: TextOverflow.ellipsis,
-                      fontSize: screenSize.width * 0.015,
+                      fontSize: widget.titleFontSize,
                     ),
                   ),
                   SizedBox(height: screenSize.height * 0.01),
@@ -66,7 +78,7 @@ class _ArticleCardComponentState extends State<ArticleCardComponent> {
                       Text(
                         "${widget.publishDateTime} - ${widget.topic} - ${widget.readTime} read",
                         style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                          fontSize: screenSize.width * 0.009,
+                          fontSize: widget.infosFontSize,
                           fontWeight: FontWeight.w900,
                           color: portfolioColorScheme.primary,
                         ),
@@ -74,7 +86,7 @@ class _ArticleCardComponentState extends State<ArticleCardComponent> {
                       SizedBox(width: screenSize.width * 0.005),
                       Image.asset(
                         'assets/images/logo/stackademic.png',
-                        width: screenSize.width * 0.07,
+                        width: screenSize.width * widget.stackademicLabelWidth,
                         fit: BoxFit.fitWidth,
                       ),
                     ],
@@ -84,7 +96,7 @@ class _ArticleCardComponentState extends State<ArticleCardComponent> {
             ),
             Container(
               height: screenSize.height * 0.05,
-              width: screenSize.width * 0.3,
+              width: screenSize.width * widget.width,
               padding: EdgeInsets.symmetric(
                 horizontal: screenSize.width * 0.01,
                 vertical: screenSize.height * 0.01,
@@ -103,7 +115,7 @@ class _ArticleCardComponentState extends State<ArticleCardComponent> {
                     "Read article",
                     style: portfolioTheme.textTheme.displayMedium?.copyWith(
                       fontWeight: FontWeight.w900,
-                      fontSize: screenSize.width * 0.01,
+                      fontSize: widget.ctaFontSize,
                     ),
                   ),
                   FaIcon(

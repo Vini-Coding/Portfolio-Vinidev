@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_color_scheme.dart';
-import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 import 'package:portfolio_vinidev/app/core/utils/responsive_layout_builder.dart';
-import 'package:portfolio_vinidev/app/dashboard/articles/components/article_card_component.dart';
-import 'package:portfolio_vinidev/app/dashboard/articles/model/article.dart';
+
+import 'package:portfolio_vinidev/app/dashboard/articles/desktop/articles_desktop_view.dart';
+import 'package:portfolio_vinidev/app/dashboard/articles/mobile/articles_mobile_view.dart';
+import 'package:portfolio_vinidev/app/dashboard/articles/tablet/articles_tablet_view.dart';
+
 import 'package:url_launcher/url_launcher.dart';
+import 'model/article.dart';
 
 class ArticlesView extends StatefulWidget {
   const ArticlesView({super.key});
@@ -40,83 +42,23 @@ class _ArticlesViewState extends State<ArticlesView> {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
     return ResponsiveLayoutBuilder(
       backgroundColor: portfolioColorScheme.secondary,
-      desktop: Row(
-        children: [
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Spacer(),
-                Text.rich(
-                  TextSpan(
-                    text: "My last ",
-                    style: portfolioTheme.textTheme.displayMedium?.copyWith(
-                      color: portfolioTheme.backgroundColor,
-                    ),
-                    children: [
-                      TextSpan(
-                        text: "publications",
-                        style: portfolioTheme.textTheme.displayMedium?.copyWith(
-                          color: portfolioColorScheme.tertiary,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Text(
-                  "I am also an official publisher at Stackademic, a project that is democratizing free coding education for everybody.",
-                  maxLines: 2,
-                  style: portfolioTheme.textTheme.bodyMedium?.copyWith(
-                    color: portfolioTheme.backgroundColor,
-                  ),
-                ),
-                SizedBox(height: screenSize.height * 0.01),
-                InkWell(
-                  onTap: () => launchLink(mediumProfileUrl),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        "Check me on Medium ",
-                        style: portfolioTheme.textTheme.labelSmall,
-                      ),
-                      FaIcon(
-                        FontAwesomeIcons.upRightFromSquare,
-                        color: portfolioColorScheme.tertiary,
-                        size: screenSize.width * 0.01,
-                      ),
-                    ],
-                  ),
-                ),
-                const Spacer(),
-                ArticleCardComponent(
-                  title: article.title,
-                  publishDateTime: article.publishDateTime,
-                  topic: article.topic,
-                  readTime: article.readTime,
-                  onTap: () => launchLink(article.articleURL),
-                ),
-                const Spacer(),
-              ],
-            ),
-          ),
-          Padding(
-            padding:  EdgeInsets.only(top: screenSize.height * 0.15),
-            child: Image.asset(
-              'assets/images/dash/dash_articles.png',
-              height: screenSize.height * 0.55,
-              fit: BoxFit.fitHeight,
-            ),
-          ),
-        ],
+      desktop: ArticlesDesktopView(
+        article: article,
+        mediumProfileUrl: mediumProfileUrl,
+        onTap: launchLink,
       ),
-      tablet: const SizedBox(),
-      mobile: const SizedBox(),
+      tablet: ArticlesTabletView(
+        article: article,
+        mediumProfileUrl: mediumProfileUrl,
+        onTap: launchLink,
+      ),
+      mobile: ArticlesMobileView(
+        article: article,
+        mediumProfileUrl: mediumProfileUrl,
+        onTap: launchLink,
+      ),
     );
   }
 }
