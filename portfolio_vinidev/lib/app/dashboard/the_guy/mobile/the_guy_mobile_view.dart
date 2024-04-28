@@ -44,7 +44,7 @@ class _TheGuyMobileViewState extends State<TheGuyMobileView> {
         case 0:
           return screenSize.width * 0.13;
         case 1:
-          return screenSize.width * 0.08;
+          return screenSize.width * 0.07;
         default:
           return screenSize.width * 0.13;
       }

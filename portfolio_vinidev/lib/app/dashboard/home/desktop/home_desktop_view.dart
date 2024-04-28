@@ -11,8 +11,6 @@ class HomeDesktopView extends StatefulWidget {
 class _HomeDesktopViewState extends State<HomeDesktopView> {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-
     return Row(
       children: [
         Expanded(
@@ -24,14 +22,14 @@ class _HomeDesktopViewState extends State<HomeDesktopView> {
                 textAlign: TextAlign.justify,
                 text: TextSpan(
                   style: portfolioTheme.textTheme.displayLarge?.copyWith(
-                    fontSize: screenSize.width * 0.03,
+                    fontSize: 34,
                   ),
                   text: "Hello world, ",
                   children: [
                     TextSpan(
                       text: "you found it",
                       style: portfolioTheme.textTheme.displayLarge?.copyWith(
-                        fontSize: screenSize.width * 0.03,
+                        fontSize: 34,
                         color: portfolioTheme.primaryColor,
                       ),
                     ),
@@ -44,7 +42,6 @@ class _HomeDesktopViewState extends State<HomeDesktopView> {
                 text: TextSpan(
                   style: portfolioTheme.textTheme.bodyMedium?.copyWith(
                     fontWeight: FontWeight.w800,
-                    fontSize: screenSize.width * 0.012,
                   ),
                   text:
                       "If you are looking for someone who could bring your ideas and concepts to the fingertips of users with ",
@@ -53,7 +50,6 @@ class _HomeDesktopViewState extends State<HomeDesktopView> {
                       text: "maestry in Flutter",
                       style: portfolioTheme.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.w900,
-                        fontSize: screenSize.width * 0.012,
                         color: portfolioTheme.primaryColor,
                       ),
                     ),
@@ -62,7 +58,6 @@ class _HomeDesktopViewState extends State<HomeDesktopView> {
                       text: "clean code ",
                       style: portfolioTheme.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.w900,
-                        fontSize: screenSize.width * 0.012,
                         color: portfolioTheme.primaryColor,
                       ),
                     ),
@@ -71,7 +66,6 @@ class _HomeDesktopViewState extends State<HomeDesktopView> {
                       text: "best user experience as possible",
                       style: portfolioTheme.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.w900,
-                        fontSize: screenSize.width * 0.012,
                         color: portfolioTheme.primaryColor,
                       ),
                     ),
@@ -82,10 +76,7 @@ class _HomeDesktopViewState extends State<HomeDesktopView> {
             ],
           ),
         ),
-        Image.asset(
-          'assets/images/dash/dash_home.png',
-          width: screenSize.width * 0.5,
-        ),
+        Expanded(child: Image.asset('assets/images/dash/dash_home.png')),
       ],
     );
   }

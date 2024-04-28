@@ -11,8 +11,6 @@ class HomeMobileView extends StatefulWidget {
 class _HomeMobileViewState extends State<HomeMobileView> {
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,14 +24,14 @@ class _HomeMobileViewState extends State<HomeMobileView> {
           textAlign: TextAlign.start,
           text: TextSpan(
             style: portfolioTheme.textTheme.displayLarge?.copyWith(
-              fontSize: screenSize.width * 0.065,
+              fontSize: 30,
             ),
             text: "Hello world, ",
             children: [
               TextSpan(
                 text: "you found it",
                 style: portfolioTheme.textTheme.displayLarge?.copyWith(
-                  fontSize: screenSize.width * 0.065,
+                  fontSize: 30,
                   color: portfolioTheme.primaryColor,
                 ),
               ),
@@ -46,7 +44,7 @@ class _HomeMobileViewState extends State<HomeMobileView> {
           text: TextSpan(
             style: portfolioTheme.textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w800,
-              fontSize: screenSize.width * 0.03,
+              fontSize: 14,
             ),
             text:
                 "If you are looking for someone who could bring your ideas and concepts to the fingertips of users with ",
@@ -55,7 +53,7 @@ class _HomeMobileViewState extends State<HomeMobileView> {
                 text: "maestry in Flutter",
                 style: portfolioTheme.textTheme.bodyMedium?.copyWith(
                   fontWeight: FontWeight.w900,
-                  fontSize: screenSize.width * 0.03,
+                  fontSize: 14,
                   color: portfolioTheme.primaryColor,
                 ),
               ),
@@ -64,7 +62,7 @@ class _HomeMobileViewState extends State<HomeMobileView> {
                 text: "clean code ",
                 style: portfolioTheme.textTheme.bodyMedium?.copyWith(
                   fontWeight: FontWeight.w900,
-                  fontSize: screenSize.width * 0.03,
+                  fontSize: 14,
                   color: portfolioTheme.primaryColor,
                 ),
               ),
@@ -73,7 +71,7 @@ class _HomeMobileViewState extends State<HomeMobileView> {
                 text: "best user experience as possible",
                 style: portfolioTheme.textTheme.bodyMedium?.copyWith(
                   fontWeight: FontWeight.w900,
-                  fontSize: screenSize.width * 0.03,
+                  fontSize: 14,
                   color: portfolioTheme.primaryColor,
                 ),
               ),
