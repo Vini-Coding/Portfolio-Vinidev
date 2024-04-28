@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_vinidev/app/core/components/default_text_button_widget.dart';
 import 'package:portfolio_vinidev/app/core/utils/exports/theme_exports.dart';
 
-import '../components/about_me_desktop_component.dart';
-import '../components/skills_desktop_component.dart';
+import '../components/about_me_component.dart';
+import '../components/skills_component.dart';
 
 class TheGuyMobileView extends StatefulWidget {
   const TheGuyMobileView({super.key});
@@ -115,15 +115,17 @@ class _TheGuyMobileViewState extends State<TheGuyMobileView> {
         Expanded(
           child: SizedBox(
             child: currentTabIndex == 0
-                ? const AboutMeDesktopComponent(
-                    titleFontSize: 0.042,
-                    displayFontSize: 0.075,
-                    bodyFontSize: 0.023,
+                ? const AboutMeComponent(
+                    titleFontSize: 20,
+                    titleSpacing: 0.02,
+                    displayFontSize: 30,
+                    bodyFontSize: 13,
                   )
-                : const SkillsDesktopComponent(
-                    titleFontSize: 0.042,
-                    displayFontSize: 0.075,
-                    bodyFontSize: 0.023,
+                : const SkillsComponent(
+                    titleFontSize: 20,
+                    titleSpacing: 0.02,
+                    displayFontSize: 30,
+                    bodyFontSize: 13,
                   ),
           ),
         ),
@@ -131,7 +133,6 @@ class _TheGuyMobileViewState extends State<TheGuyMobileView> {
           child: DefaultTextButtonWidget(
             text: "DOWNLOAD CV",
             width: 0.5,
-            textFontSize: 0.04,
             onTap: () {
               AnchorElement anchorElement =
                   AnchorElement(href: "/assets/cv/cv.pdf");

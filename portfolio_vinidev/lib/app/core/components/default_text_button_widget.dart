@@ -15,8 +15,8 @@ class DefaultTextButtonWidget extends StatefulWidget {
     required this.text,
     required this.onTap,
     this.height = 0.06,
-    this.width = 0.17,
-    this.textFontSize = 0.015,
+    this.width = 0.25,
+    this.textFontSize = 16,
     this.backgroundColor = const Color(0xFF1CD6FF),
     this.textColor = const Color(0xFF272727),
   });
@@ -57,7 +57,7 @@ class _DefaultTextButtonWidgetState extends State<DefaultTextButtonWidget> {
           child: Text(
             widget.text.toUpperCase(),
             style: portfolioTheme.textTheme.labelLarge!.copyWith(
-              fontSize: screenSize.width * widget.textFontSize,
+              fontSize: widget.textFontSize,
               color: widget.textColor,
             ),
           ),

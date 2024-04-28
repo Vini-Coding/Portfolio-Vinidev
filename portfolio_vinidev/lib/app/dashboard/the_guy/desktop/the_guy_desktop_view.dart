@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_vinidev/app/core/components/default_text_button_widget.dart';
 import 'package:portfolio_vinidev/app/core/utils/exports/theme_exports.dart';
 
-import '../components/about_me_desktop_component.dart';
-import '../components/skills_desktop_component.dart';
+import '../components/about_me_component.dart';
+import '../components/skills_component.dart';
 
 class TheGuyDesktopView extends StatefulWidget {
   const TheGuyDesktopView({super.key});
@@ -120,8 +120,8 @@ class _TheGuyDesktopViewState extends State<TheGuyDesktopView> {
               Expanded(
                 child: SizedBox(
                   child: currentTabIndex == 0
-                      ? const AboutMeDesktopComponent()
-                      : const SkillsDesktopComponent(),
+                      ? const AboutMeComponent()
+                      : const SkillsComponent(),
                 ),
               ),
             ],
@@ -137,6 +137,7 @@ class _TheGuyDesktopViewState extends State<TheGuyDesktopView> {
               ),
               DefaultTextButtonWidget(
                 text: "DOWNLOAD CV",
+                textFontSize: 18,
                 onTap: () {
                   AnchorElement anchorElement =
                       AnchorElement(href: "/assets/cv/cv.pdf");

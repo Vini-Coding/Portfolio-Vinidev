@@ -2,23 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_color_scheme.dart';
 import 'package:portfolio_vinidev/app/core/theme/portfolio_theme.dart';
 
-class AboutMeDesktopComponent extends StatefulWidget {
+class AboutMeComponent extends StatefulWidget {
   final double titleFontSize;
+  final double titleSpacing;
   final double displayFontSize;
   final double bodyFontSize;
-  const AboutMeDesktopComponent({
+  const AboutMeComponent({
     super.key,
-    this.titleFontSize = 0.018,
-    this.displayFontSize = 0.035,
-    this.bodyFontSize = 0.011,
+    this.titleFontSize = 25,
+    this.titleSpacing = 0.03,
+    this.displayFontSize = 45,
+    this.bodyFontSize = 14,
   });
 
   @override
-  State<AboutMeDesktopComponent> createState() =>
-      _AboutMeDesktopComponentState();
+  State<AboutMeComponent> createState() =>
+      _AboutMeComponentState();
 }
 
-class _AboutMeDesktopComponentState extends State<AboutMeDesktopComponent> {
+class _AboutMeComponentState extends State<AboutMeComponent> {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -31,7 +33,7 @@ class _AboutMeDesktopComponentState extends State<AboutMeDesktopComponent> {
           text: TextSpan(
             style: portfolioTheme.textTheme.headlineMedium?.copyWith(
               color: portfolioColorScheme.onSecondary,
-              fontSize: screenSize.width * widget.titleFontSize,
+              fontSize: widget.titleFontSize,
               height: 1,
             ),
             text: "I am ",
@@ -40,7 +42,7 @@ class _AboutMeDesktopComponentState extends State<AboutMeDesktopComponent> {
                 text: "Vini",
                 style: portfolioTheme.textTheme.headlineMedium?.copyWith(
                   color: portfolioColorScheme.tertiary,
-                  fontSize: screenSize.width * widget.titleFontSize,
+                  fontSize: widget.titleFontSize,
                   height: 1,
                 ),
               ),
@@ -49,27 +51,27 @@ class _AboutMeDesktopComponentState extends State<AboutMeDesktopComponent> {
                 text: "a Developer",
                 style: portfolioTheme.textTheme.headlineLarge?.copyWith(
                   color: portfolioColorScheme.tertiary,
-                  fontSize: screenSize.width * widget.displayFontSize,
+                  fontSize: widget.displayFontSize,
                   height: 1.2,
                 ),
               ),
             ],
           ),
         ),
-        SizedBox(height: screenSize.height * 0.02),
+        SizedBox(height: screenSize.height * widget.titleSpacing),
         RichText(
           textAlign: TextAlign.justify,
-          maxLines: 8,
+          maxLines: 20,
           text: TextSpan(
             style: portfolioTheme.textTheme.bodySmall?.copyWith(
-              fontSize: screenSize.width * widget.bodyFontSize,
+              fontSize: widget.bodyFontSize,
             ),
             text: "I believe that ",
             children: [
               TextSpan(
                 text: "development is more than delivering a software",
                 style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                  fontSize: screenSize.width * widget.bodyFontSize,
+                  fontSize: widget.bodyFontSize,
                   fontWeight: FontWeight.w900,
                   color: portfolioColorScheme.tertiary,
                 ),
@@ -78,7 +80,7 @@ class _AboutMeDesktopComponentState extends State<AboutMeDesktopComponent> {
               TextSpan(
                 text: "succesfully solvin the user’s problem",
                 style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                  fontSize: screenSize.width * widget.bodyFontSize,
+                  fontSize: widget.bodyFontSize,
                   fontWeight: FontWeight.w900,
                   color: portfolioColorScheme.tertiary,
                 ),
@@ -87,7 +89,7 @@ class _AboutMeDesktopComponentState extends State<AboutMeDesktopComponent> {
               TextSpan(
                 text: "best design choices",
                 style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                  fontSize: screenSize.width * widget.bodyFontSize,
+                  fontSize: widget.bodyFontSize,
                   fontWeight: FontWeight.w900,
                   color: portfolioColorScheme.tertiary,
                 ),
@@ -96,7 +98,7 @@ class _AboutMeDesktopComponentState extends State<AboutMeDesktopComponent> {
               TextSpan(
                 text: "best coding practices",
                 style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                  fontSize: screenSize.width * widget.bodyFontSize,
+                  fontSize: widget.bodyFontSize,
                   fontWeight: FontWeight.w900,
                   color: portfolioColorScheme.tertiary,
                 ),
@@ -105,7 +107,7 @@ class _AboutMeDesktopComponentState extends State<AboutMeDesktopComponent> {
               TextSpan(
                 text: "best experience ",
                 style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                  fontSize: screenSize.width * widget.bodyFontSize,
+                  fontSize: widget.bodyFontSize,
                   fontWeight: FontWeight.w900,
                   color: portfolioColorScheme.tertiary,
                 ),
@@ -117,7 +119,7 @@ class _AboutMeDesktopComponentState extends State<AboutMeDesktopComponent> {
               TextSpan(
                 text: "I specialized myself in Flutter development",
                 style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                  fontSize: screenSize.width * widget.bodyFontSize,
+                  fontSize: widget.bodyFontSize,
                   fontWeight: FontWeight.w900,
                   color: portfolioColorScheme.tertiary,
                 ),
@@ -133,7 +135,7 @@ class _AboutMeDesktopComponentState extends State<AboutMeDesktopComponent> {
         Text(
           "For me, 3 keys are needed for an efficient development. They are:\n1. How well you solve the user’s problem.\n2. How clean and maintanable is your code.\n3. How suitable is your app’s design.",
           style: portfolioTheme.textTheme.bodySmall?.copyWith(
-            fontSize: screenSize.width * widget.bodyFontSize,
+            fontSize: widget.bodyFontSize,
           ),
           maxLines: 5,
           textAlign: TextAlign.justify,
@@ -141,9 +143,10 @@ class _AboutMeDesktopComponentState extends State<AboutMeDesktopComponent> {
         SizedBox(height: screenSize.height * 0.02),
         RichText(
           textAlign: TextAlign.justify,
+          maxLines: 5,
           text: TextSpan(
             style: portfolioTheme.textTheme.bodySmall?.copyWith(
-              fontSize: screenSize.width * widget.bodyFontSize,
+              fontSize: widget.bodyFontSize,
             ),
             text:
                 "And I won’t be modest in say that I know the paths of these keys, so, believe me, ",
@@ -151,7 +154,7 @@ class _AboutMeDesktopComponentState extends State<AboutMeDesktopComponent> {
               TextSpan(
                 text: "I am the guy that you are looking for",
                 style: portfolioTheme.textTheme.bodySmall?.copyWith(
-                  fontSize: screenSize.width * widget.bodyFontSize,
+                  fontSize: widget.bodyFontSize,
                   fontWeight: FontWeight.w900,
                   color: portfolioColorScheme.tertiary,
                 ),

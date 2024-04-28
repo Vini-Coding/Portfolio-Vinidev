@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_vinidev/app/core/components/default_text_button_widget.dart';
 import 'package:portfolio_vinidev/app/core/utils/exports/theme_exports.dart';
 
-import '../components/about_me_desktop_component.dart';
-import '../components/skills_desktop_component.dart';
+import '../components/about_me_component.dart';
+import '../components/skills_component.dart';
 
 class TheGuyTabletView extends StatefulWidget {
   const TheGuyTabletView({super.key});
@@ -33,7 +33,7 @@ class _TheGuyTabletViewState extends State<TheGuyTabletView> {
         case 0:
           return 0;
         case 1:
-          return screenSize.width * 0.092;
+          return screenSize.width * 0.1;
         default:
           return 0;
       }
@@ -42,11 +42,11 @@ class _TheGuyTabletViewState extends State<TheGuyTabletView> {
     double changeLineWidth() {
       switch (currentTabIndex) {
         case 0:
-          return screenSize.width * 0.07;
+          return screenSize.width * 0.075;
         case 1:
-          return screenSize.width * 0.04;
+          return screenSize.width * 0.038;
         default:
-          return screenSize.width * 0.07;
+          return screenSize.width * 0.075;
       }
     }
 
@@ -82,7 +82,7 @@ class _TheGuyTabletViewState extends State<TheGuyTabletView> {
                                 tabs[index],
                                 style: portfolioTheme.textTheme.bodySmall!
                                     .copyWith(
-                                  fontSize: screenSize.width * 0.013,
+                                  fontSize: screenSize.width * 0.014,
                                   fontWeight: currentTabIndex == index
                                       ? FontWeight.w800
                                       : FontWeight.w500,
@@ -120,15 +120,17 @@ class _TheGuyTabletViewState extends State<TheGuyTabletView> {
               Expanded(
                 child: SizedBox(
                   child: currentTabIndex == 0
-                      ? const AboutMeDesktopComponent(
-                          titleFontSize: 0.025,
-                          displayFontSize: 0.045,
-                          bodyFontSize: 0.014,
+                      ? const AboutMeComponent(
+                          titleFontSize: 20,
+                          titleSpacing: 0.02,
+                          displayFontSize: 40,
+                          bodyFontSize: 12,
                         )
-                      : const SkillsDesktopComponent(
-                          titleFontSize: 0.025,
-                          displayFontSize: 0.045,
-                          bodyFontSize: 0.013,
+                      : const SkillsComponent(
+                          titleFontSize: 20,
+                          titleSpacing: 0.02,
+                          displayFontSize: 30,
+                          bodyFontSize: 12,
                         ),
                 ),
               ),
@@ -147,8 +149,6 @@ class _TheGuyTabletViewState extends State<TheGuyTabletView> {
               ),
               DefaultTextButtonWidget(
                 text: "DOWNLOAD CV",
-                textFontSize: 0.022,
-                width: 0.25,
                 onTap: () {
                   AnchorElement anchorElement =
                       AnchorElement(href: "/assets/cv/cv.pdf");
