@@ -21,9 +21,9 @@ const portfolioColorScheme = ColorScheme(
   outline: Color(0xff272727), //check
   background: Color(0xffFBFEF9), //check
   onBackground: Color(0xff272727), //check
-  surface: Color(0xffFBFEF9), //check
+  surface: Color(0xFFE0E2DE),
   onSurface: Color(0xff272727), //check
-  surfaceVariant: Color(0xffFBFEF9), //check
+  surfaceVariant: Color(0xFF4B4B4B), //check
   onSurfaceVariant: Color(0xff272727), //check
   inverseSurface: Color(0xFF313033),
   onInverseSurface: Color(0xFFF4EFF4),

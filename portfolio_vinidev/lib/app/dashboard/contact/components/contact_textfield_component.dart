@@ -7,12 +7,16 @@ class ContactTextfieldComponent extends StatefulWidget {
   final TextEditingController textController;
   final TextInputType keyboardType;
   final bool? isMessage;
+  final double fontSize;
+  final int maxLines;
   const ContactTextfieldComponent({
     super.key,
     required this.hintText,
     required this.textController,
     required this.keyboardType,
     this.isMessage,
+    this.fontSize = 12,
+    this.maxLines = 99,
   });
 
   @override
@@ -29,15 +33,15 @@ class _ContactTextfieldComponentState extends State<ContactTextfieldComponent> {
       controller: widget.textController,
       keyboardType: widget.keyboardType,
       style: portfolioTheme.textTheme.bodySmall!.copyWith(
-        fontSize: 12,
+        fontSize: widget.fontSize,
       ),
-      maxLines: 99,
+      maxLines: widget.maxLines,
       cursorColor: portfolioColorScheme.tertiary,
       textAlign: TextAlign.start,
       textAlignVertical: TextAlignVertical.center,
       decoration: InputDecoration(
         filled: true,
-        fillColor: const Color(0xFF4B4B4B),
+        fillColor: portfolioColorScheme.surfaceVariant,
         constraints: BoxConstraints(
           maxHeight: widget.isMessage != null ? 0 : screenSize.height * 0.055,
           maxWidth: screenSize.width,
@@ -53,7 +57,9 @@ class _ContactTextfieldComponentState extends State<ContactTextfieldComponent> {
         ),
         hintText: widget.hintText,
         hintStyle: portfolioTheme.textTheme.bodySmall!.copyWith(
-          fontSize: 12,
+          fontSize: widget.fontSize,
+          color: portfolioColorScheme.surface,
+          overflow: TextOverflow.ellipsis,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
