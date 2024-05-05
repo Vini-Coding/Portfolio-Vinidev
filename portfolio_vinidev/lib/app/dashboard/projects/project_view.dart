@@ -264,12 +264,14 @@ class _ProjectViewState extends State<ProjectView> {
                     SizedBox(width: screenSize.width * 0.01),
                     Text(
                       "Go to project",
+                      maxLines: 2,
                       style: portfolioTheme.textTheme.headlineMedium?.copyWith(
                         fontSize: widget.projectTitleFontSize,
                         fontWeight: FontWeight.w800,
                         fontStyle: FontStyle.italic,
                         color:
                             projects[currentProjectIndex].primaryProjectColor,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     SizedBox(width: screenSize.width * 0.015),
@@ -285,38 +287,34 @@ class _ProjectViewState extends State<ProjectView> {
           ),
         ),
         Expanded(
-          child: SizedBox(
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(screenSize.width * 0.015),
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      right: screenSize.width * widget.videoRightPadding,
-                      top: screenSize.height * 0.02,
-                      bottom: screenSize.height * 0.02,
-                    ),
-                    child: SizedBox(
-                      child: VideoPlayerWidget(
-                        videoUrl:
-                            projects[currentProjectIndex].applicationVideoPath,
-                        progressIndicatorColor:
-                            projects[currentProjectIndex].primaryProjectColor,
-                      ),
-                    ),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(screenSize.width * 0.015),
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    right: screenSize.width * widget.videoRightPadding,
+                    top: screenSize.height * 0.02,
+                    bottom: screenSize.height * 0.02,
+                  ),
+                  child: VideoPlayerWidget(
+                    videoUrl:
+                        projects[currentProjectIndex].applicationVideoPath,
+                    progressIndicatorColor:
+                        projects[currentProjectIndex].primaryProjectColor,
                   ),
                 ),
-                Container(
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/projects/cellphone.png'),
-                      fit: BoxFit.fitHeight,
-                    ),
+              ),
+              Container(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/projects/cellphone.png'),
+                    fit: BoxFit.fitHeight,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ],

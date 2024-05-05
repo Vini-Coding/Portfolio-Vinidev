@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_vinidev/app/core/utils/exports/theme_exports.dart';
+import 'package:portfolio_vinidev/app/dashboard/projects/component/project_card_mobile_component.dart';
 
 import '../component/project_card_component.dart';
 import '../project_view.dart';
@@ -37,7 +39,6 @@ class _ProjectsMobileViewState extends State<ProjectsMobileView> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Spacer(),
           Text(
             "Projects",
             style: portfolioTheme.textTheme.displayMedium?.copyWith(
@@ -64,45 +65,30 @@ class _ProjectsMobileViewState extends State<ProjectsMobileView> {
               ],
             ),
           ),
-          const Spacer(),
-          ProjectCardComponent(
+          SizedBox(height: screenSize.height * 0.01),
+          ProjectCardMobileComponent(
             onTap: () => setState(() {
               projectSelectedIndex = 0;
               isProjectSelected = true;
             }),
-            height: 0.15,
-            width: 0.9,
-            labelHeight: 0.03,
-            iconSize: 0.015,
-            textFontSize: 0.02,
             imagePath: 'assets/images/projects/protechtor_gear_mobile.png',
             primaryProjectColor: const Color(0xFFFCA349),
           ),
           SizedBox(height: screenSize.height * 0.01),
-          ProjectCardComponent(
+          ProjectCardMobileComponent(
             onTap: () => setState(() {
               projectSelectedIndex = 1;
               isProjectSelected = true;
             }),
-            height: 0.15,
-            width: 0.9,
-            labelHeight: 0.03,
-            iconSize: 0.015,
-            textFontSize: 0.02,
             imagePath: 'assets/images/projects/bmi_check_mobile.png',
             primaryProjectColor: const Color(0xFF3D3A4D),
           ),
           SizedBox(height: screenSize.height * 0.01),
-          ProjectCardComponent(
+          ProjectCardMobileComponent(
             onTap: () => setState(() {
               projectSelectedIndex = 2;
               isProjectSelected = true;
             }),
-            height: 0.15,
-            width: 0.9,
-            labelHeight: 0.03,
-            iconSize: 0.015,
-            textFontSize: 0.02,
             imagePath: 'assets/images/projects/plus+_mobile.png',
             primaryProjectColor: const Color(0xFFFF3838),
           ),
@@ -112,7 +98,7 @@ class _ProjectsMobileViewState extends State<ProjectsMobileView> {
         projectIndex: projectSelectedIndex,
         onBack: () => setState(() => isProjectSelected = false),
         isMobile: true,
-        titleFontSize: 30,
+        titleFontSize: 25,
         projectTitleFontSize: 18,
         bodyFontSize: 12,
         linkIconSize: 0.03,
