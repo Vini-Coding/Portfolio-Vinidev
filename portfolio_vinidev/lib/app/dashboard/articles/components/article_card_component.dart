@@ -47,7 +47,7 @@ class _ArticleCardComponentState extends State<ArticleCardComponent> {
               height: screenSize.height * widget.height,
               width: screenSize.width * widget.width,
               padding: EdgeInsets.symmetric(
-                vertical: screenSize.height * 0.01,
+                vertical: screenSize.height * 0.005,
                 horizontal: screenSize.width * 0.01,
               ),
               decoration: BoxDecoration(

@@ -65,7 +65,7 @@ class _TheGuyMobileViewState extends State<TheGuyMobileView> {
                 right: 0,
                 child: SizedBox(
                   width: screenSize.width,
-                  height: screenSize.height * 0.03,
+                  height: screenSize.height * 0.045,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     physics: const BouncingScrollPhysics(),
@@ -112,6 +112,7 @@ class _TheGuyMobileViewState extends State<TheGuyMobileView> {
             ],
           ),
         ),
+        SizedBox(height: screenSize.height * 0.02),
         Expanded(
           child: SizedBox(
             child: currentTabIndex == 0
@@ -129,6 +130,7 @@ class _TheGuyMobileViewState extends State<TheGuyMobileView> {
                   ),
           ),
         ),
+        SizedBox(height: screenSize.height * 0.02),
         Center(
           child: DefaultTextButtonWidget(
             text: "DOWNLOAD CV",

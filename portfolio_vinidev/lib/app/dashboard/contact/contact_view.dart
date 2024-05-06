@@ -34,6 +34,7 @@ class _ContactViewState extends State<ContactView> {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
     return ResponsiveLayoutBuilder(
       backgroundColor: portfolioColorScheme.primary,
       desktop: ContactDesktopView(
@@ -52,14 +53,25 @@ class _ContactViewState extends State<ContactView> {
         messageTextController: messageTextController,
         validate: validate,
       ),
-      mobile: ContactMobileView(
-        formKey: formKey,
-        nameTextController: nameTextController,
-        emailTextController: emailTextController,
-        subjectTextController: subjectTextController,
-        messageTextController: messageTextController,
-        validate: validate,
-      ),
+      mobile: screenSize.height < 400
+          ? SingleChildScrollView(
+              child: ContactMobileView(
+                formKey: formKey,
+                nameTextController: nameTextController,
+                emailTextController: emailTextController,
+                subjectTextController: subjectTextController,
+                messageTextController: messageTextController,
+                validate: validate,
+              ),
+            )
+          : ContactMobileView(
+              formKey: formKey,
+              nameTextController: nameTextController,
+              emailTextController: emailTextController,
+              subjectTextController: subjectTextController,
+              messageTextController: messageTextController,
+              validate: validate,
+            ),
     );
   }
 }

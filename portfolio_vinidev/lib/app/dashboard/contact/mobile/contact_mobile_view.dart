@@ -155,7 +155,8 @@ class _ContactMobileViewState extends State<ContactMobileView> {
                 ),
               ),
               ContactTextfieldComponent(
-                hintText: "You can write your idea or business name here...",
+                hintText:
+                    "You can write your idea or business name here...",
                 textController: widget.subjectTextController,
                 fontSize: 10,
                 keyboardType: TextInputType.text,

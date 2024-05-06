@@ -80,12 +80,15 @@ class _ArticlesMobileViewState extends State<ArticlesMobileView> {
         SizedBox(height: screenSize.height * 0.02),
         ArticleCardComponent(
           width: 0.99,
-          stackademicLabelWidth: 0.15,
+          stackademicLabelWidth: screenSize.height < 500 ? 0.12 : 0.15,
           title: widget.article.title,
           publishDateTime: widget.article.publishDateTime,
           topic: widget.article.topic,
           readTime: widget.article.readTime,
           onTap: () => widget.onTap(widget.article.articleURL),
+          titleFontSize: screenSize.height < 500 ? 16 : 18,
+          infosFontSize: screenSize.height < 500 ? 8 : 10,
+          ctaFontSize: screenSize.height < 500 ? 10 : 14,
         ),
         SizedBox(height: screenSize.height * 0.07),
         Expanded(
