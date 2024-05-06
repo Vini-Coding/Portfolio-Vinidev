@@ -52,44 +52,49 @@ class _FooterComponentState extends State<FooterComponent> {
                 "All rights reserved for Vinícius Soares",
                 style: portfolioTheme.textTheme.displayLarge?.copyWith(
                   color: portfolioColorScheme.background,
-                  fontSize: screenSize.width * 0.01,
+                  fontSize: 10,
                 ),
+                maxLines: 2,
               ),
               Text(
                 "Illustrations by Icons8.",
                 style: portfolioTheme.textTheme.displayLarge?.copyWith(
                   color: portfolioColorScheme.background,
-                  fontSize: screenSize.width * 0.01,
+                  fontSize: 10,
                 ),
+                maxLines: 2,
               ),
               Row(
                 children: [
                   IconButton(
                     padding: const EdgeInsets.symmetric(horizontal: 0),
-                    onPressed: () => launchLink("https://github.com/Vini-Coding"),
+                    onPressed: () =>
+                        launchLink("https://github.com/Vini-Coding"),
                     icon: FaIcon(
                       FontAwesomeIcons.github,
-                      size: screenSize.width * 0.02,
+                      size: 20,
                       color: portfolioColorScheme.background,
                     ),
                   ),
                   SizedBox(width: screenSize.width * 0.005),
                   IconButton(
                     padding: const EdgeInsets.symmetric(horizontal: 0),
-                    onPressed: () => launchLink("https://www.linkedin.com/in/vin%C3%ADcius-soares-584075255/"),
+                    onPressed: () => launchLink(
+                        "https://www.linkedin.com/in/vin%C3%ADcius-soares-584075255/"),
                     icon: FaIcon(
                       FontAwesomeIcons.linkedin,
-                      size: screenSize.width * 0.02,
+                      size: 20,
                       color: portfolioColorScheme.background,
                     ),
                   ),
                   SizedBox(width: screenSize.width * 0.005),
                   IconButton(
                     padding: const EdgeInsets.symmetric(horizontal: 0),
-                    onPressed: () => launchLink("https://medium.com/@vinicius.coding"),
+                    onPressed: () =>
+                        launchLink("https://medium.com/@vinicius.coding"),
                     icon: FaIcon(
                       FontAwesomeIcons.medium,
-                      size: screenSize.width * 0.02,
+                      size: 20,
                       color: portfolioColorScheme.background,
                     ),
                   ),

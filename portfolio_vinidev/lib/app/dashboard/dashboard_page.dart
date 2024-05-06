@@ -134,13 +134,14 @@ class _DashboardPageState extends State<DashboardPage> {
             } else {
               return Row(
                 children: [
-                  Image.asset("assets/images/logo/logo.png", width: 130),
+                  Image.asset("assets/images/logo/logo.png", width: 110),
                   const Spacer(),
                   PopupMenuButton(
+                    color: portfolioColorScheme.onBackground,
                     icon: const FaIcon(FontAwesomeIcons.bars),
                     position: PopupMenuPosition.under,
                     constraints: BoxConstraints.tightFor(
-                      width: screenSize.width * 0.9,
+                      width: screenSize.width,
                     ),
                     itemBuilder: (context) {
                       return menuItems
@@ -150,7 +151,9 @@ class _DashboardPageState extends State<DashboardPage> {
                             (element) => PopupMenuItem(
                               child: Text(
                                 element.value,
-                                style: portfolioTheme.textTheme.labelMedium,
+                                style: portfolioTheme.textTheme.labelMedium?.copyWith(
+                                  color: portfolioColorScheme.background,
+                                ),
                               ),
                               onTap: () => scrollTo(
                                 indexView: element.key,
