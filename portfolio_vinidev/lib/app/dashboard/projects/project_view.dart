@@ -99,38 +99,38 @@ class _ProjectViewState extends State<ProjectView> {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  IconButton(
-                    padding: const EdgeInsets.symmetric(horizontal: 0),
-                    onPressed: widget.onBack,
-                    icon: FaIcon(
-                      FontAwesomeIcons.arrowLeft,
-                      size: screenSize.width * widget.backIconSize,
-                      color: portfolioColorScheme.onBackground,
+    return Visibility(
+      visible: widget.isMobile,
+      replacement: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    IconButton(
+                      padding: const EdgeInsets.symmetric(horizontal: 0),
+                      onPressed: widget.onBack,
+                      icon: FaIcon(
+                        FontAwesomeIcons.arrowLeft,
+                        size: screenSize.width * widget.backIconSize,
+                        color: portfolioColorScheme.onBackground,
+                      ),
                     ),
-                  ),
-                  SizedBox(width: screenSize.width * 0.01),
-                  Text(
-                    "Projects",
-                    style: portfolioTheme.textTheme.displayMedium?.copyWith(
-                      fontSize: widget.titleFontSize,
+                    SizedBox(width: screenSize.width * 0.01),
+                    Text(
+                      "Projects",
+                      style: portfolioTheme.textTheme.displayMedium?.copyWith(
+                        fontSize: widget.titleFontSize,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              const Spacer(),
-              Visibility(
-                visible: widget.isMobile,
-                replacement: Row(
+                  ],
+                ),
+                const Spacer(),
+                Row(
                   children: [
                     Text(
                       projects[currentProjectIndex].title,
@@ -171,153 +171,258 @@ class _ProjectViewState extends State<ProjectView> {
                     ),
                   ],
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      projects[currentProjectIndex].title,
-                      style: portfolioTheme.textTheme.headlineMedium?.copyWith(
-                        fontSize: widget.projectTitleFontSize,
-                        color:
-                            projects[currentProjectIndex].primaryProjectColor,
-                      ),
+                const Spacer(),
+                Padding(
+                  padding: EdgeInsets.only(right: screenSize.width * 0.03),
+                  child: Text(
+                    projects[currentProjectIndex].description,
+                    style: portfolioTheme.textTheme.bodyMedium?.copyWith(
+                      fontSize: widget.bodyFontSize,
                     ),
-                    Row(
-                      children: [
-                        IconButton(
-                          padding: const EdgeInsets.symmetric(horizontal: 0),
-                          onPressed: () async => launchLink(
-                            projects[currentProjectIndex].githubURL,
-                          ),
-                          icon: FaIcon(
-                            FontAwesomeIcons.github,
-                            size: screenSize.width * widget.linkIconSize,
-                            color: portfolioColorScheme.onBackground,
-                          ),
-                        ),
-                        SizedBox(width: screenSize.width * 0.003),
-                        IconButton(
-                          padding: const EdgeInsets.all(0),
-                          onPressed: () async => launchLink(
-                            projects[currentProjectIndex].linkedinURL,
-                          ),
-                          icon: FaIcon(
-                            FontAwesomeIcons.linkedin,
-                            size: screenSize.width * widget.linkIconSize,
-                            color: portfolioColorScheme.onBackground,
-                          ),
-                        ),
-                        SizedBox(width: screenSize.width * 0.005),
-                        Image.asset(
-                          'assets/images/projects/flutter_logo.png',
-                          width: screenSize.width * widget.linkIconSize,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              const Spacer(),
-              Padding(
-                padding: EdgeInsets.only(right: screenSize.width * 0.03),
-                child: Text(
-                  projects[currentProjectIndex].description,
-                  style: portfolioTheme.textTheme.bodyMedium?.copyWith(
-                    fontSize: widget.bodyFontSize,
+                    textAlign: TextAlign.justify,
+                    maxLines: 10,
                   ),
-                  textAlign: TextAlign.justify,
+                ),
+                const Spacer(),
+                RichText(
                   maxLines: 10,
-                ),
-              ),
-              const Spacer(),
-              RichText(
-                maxLines: 10,
-                text: TextSpan(
-                  text: "Features:\n",
-                  style: portfolioTheme.textTheme.bodyMedium?.copyWith(
-                    fontSize: widget.bodyFontSize,
-                    fontWeight: FontWeight.w900,
-                    color: projects[currentProjectIndex].primaryProjectColor,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: projects[currentProjectIndex].features,
-                      style: portfolioTheme.textTheme.bodyMedium?.copyWith(
-                        fontSize: widget.bodyFontSize,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const Spacer(),
-              InkWell(
-                onTap: () async => launchLink(
-                  projects[currentProjectIndex].githubURL,
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Image.asset(
-                      projects[currentProjectIndex].minLogoPath,
-                      width: screenSize.width * 0.03,
-                    ),
-                    SizedBox(width: screenSize.width * 0.01),
-                    Text(
-                      "Go to project",
-                      maxLines: 2,
-                      style: portfolioTheme.textTheme.headlineMedium?.copyWith(
-                        fontSize: widget.projectTitleFontSize,
-                        fontWeight: FontWeight.w800,
-                        fontStyle: FontStyle.italic,
-                        color:
-                            projects[currentProjectIndex].primaryProjectColor,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    SizedBox(width: screenSize.width * 0.015),
-                    FaIcon(
-                      FontAwesomeIcons.chevronRight,
-                      size: screenSize.width * widget.linkIconSize,
+                  text: TextSpan(
+                    text: "Features:\n",
+                    style: portfolioTheme.textTheme.bodyMedium?.copyWith(
+                      fontSize: widget.bodyFontSize,
+                      fontWeight: FontWeight.w900,
                       color: projects[currentProjectIndex].primaryProjectColor,
                     ),
-                  ],
+                    children: [
+                      TextSpan(
+                        text: projects[currentProjectIndex].features,
+                        style: portfolioTheme.textTheme.bodyMedium?.copyWith(
+                          fontSize: widget.bodyFontSize,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                const Spacer(),
+                InkWell(
+                  onTap: () async => launchLink(
+                    projects[currentProjectIndex].githubURL,
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Image.asset(
+                        projects[currentProjectIndex].minLogoPath,
+                        width: screenSize.width * 0.03,
+                      ),
+                      SizedBox(width: screenSize.width * 0.01),
+                      Text(
+                        "Go to project",
+                        maxLines: 2,
+                        style:
+                            portfolioTheme.textTheme.headlineMedium?.copyWith(
+                          fontSize: widget.projectTitleFontSize,
+                          fontWeight: FontWeight.w800,
+                          fontStyle: FontStyle.italic,
+                          color:
+                              projects[currentProjectIndex].primaryProjectColor,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      SizedBox(width: screenSize.width * 0.015),
+                      FaIcon(
+                        FontAwesomeIcons.chevronRight,
+                        size: screenSize.width * widget.linkIconSize,
+                        color:
+                            projects[currentProjectIndex].primaryProjectColor,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-        Expanded(
-          child: Stack(
-            alignment: Alignment.center,
+          Expanded(
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(screenSize.width * 0.015),
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      right: screenSize.width * widget.videoRightPadding,
+                      top: screenSize.height * 0.02,
+                      bottom: screenSize.height * 0.02,
+                    ),
+                    child: VideoPlayerWidget(
+                      videoUrl:
+                          projects[currentProjectIndex].applicationVideoPath,
+                      progressIndicatorColor:
+                          projects[currentProjectIndex].primaryProjectColor,
+                    ),
+                  ),
+                ),
+                Container(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/projects/cellphone.png'),
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(screenSize.width * 0.015),
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    right: screenSize.width * widget.videoRightPadding,
-                    top: screenSize.height * 0.02,
-                    bottom: screenSize.height * 0.02,
-                  ),
-                  child: VideoPlayerWidget(
-                    videoUrl:
-                        projects[currentProjectIndex].applicationVideoPath,
-                    progressIndicatorColor:
-                        projects[currentProjectIndex].primaryProjectColor,
-                  ),
+              IconButton(
+                padding: const EdgeInsets.symmetric(horizontal: 0),
+                onPressed: widget.onBack,
+                icon: FaIcon(
+                  FontAwesomeIcons.arrowLeft,
+                  size: screenSize.width * widget.backIconSize,
+                  color: portfolioColorScheme.onBackground,
                 ),
               ),
-              Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/projects/cellphone.png'),
-                    fit: BoxFit.fitHeight,
+              Text(
+                "Projects",
+                style: portfolioTheme.textTheme.displayMedium?.copyWith(
+                  fontSize: widget.titleFontSize,
+                ),
+              ),
+              SizedBox(width: screenSize.width * 0.06),
+            ],
+          ),
+          Expanded(
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(screenSize.width * 0.05),
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      right: screenSize.width * widget.videoRightPadding,
+                      top: screenSize.height * 0.01,
+                      bottom: screenSize.height * 0.01,
+                    ),
+                    child: VideoPlayerWidget(
+                      videoUrl:
+                          projects[currentProjectIndex].applicationVideoPath,
+                      progressIndicatorColor:
+                          projects[currentProjectIndex].primaryProjectColor,
+                    ),
                   ),
                 ),
+                Container(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/projects/cellphone.png'),
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                projects[currentProjectIndex].title,
+                style: portfolioTheme.textTheme.headlineMedium?.copyWith(
+                  fontSize: widget.projectTitleFontSize,
+                  color: projects[currentProjectIndex].primaryProjectColor,
+                ),
+              ),
+              SizedBox(width: screenSize.width * 0.005),
+              IconButton(
+                padding: const EdgeInsets.symmetric(horizontal: 0),
+                onPressed: () async => launchLink(
+                  projects[currentProjectIndex].githubURL,
+                ),
+                icon: FaIcon(
+                  FontAwesomeIcons.github,
+                  size: screenSize.width * widget.linkIconSize,
+                  color: portfolioColorScheme.onBackground,
+                ),
+              ),
+              SizedBox(width: screenSize.width * 0.005),
+              IconButton(
+                padding: const EdgeInsets.all(0),
+                onPressed: () async => launchLink(
+                  projects[currentProjectIndex].linkedinURL,
+                ),
+                icon: FaIcon(
+                  FontAwesomeIcons.linkedin,
+                  size: screenSize.width * widget.linkIconSize,
+                  color: portfolioColorScheme.onBackground,
+                ),
+              ),
+              SizedBox(width: screenSize.width * 0.005),
+              Image.asset(
+                'assets/images/projects/flutter_logo.png',
+                width: screenSize.width * widget.linkIconSize,
               ),
             ],
           ),
-        ),
-      ],
+          RichText(
+            maxLines: 10,
+            text: TextSpan(
+              text: "Features:\n",
+              style: portfolioTheme.textTheme.bodyMedium?.copyWith(
+                fontSize: widget.bodyFontSize,
+                fontWeight: FontWeight.w900,
+                color: projects[currentProjectIndex].primaryProjectColor,
+              ),
+              children: [
+                TextSpan(
+                  text: projects[currentProjectIndex].features,
+                  style: portfolioTheme.textTheme.bodyMedium?.copyWith(
+                    fontSize: widget.bodyFontSize,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          InkWell(
+            onTap: () async => launchLink(
+              projects[currentProjectIndex].githubURL,
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  projects[currentProjectIndex].minLogoPath,
+                  width: screenSize.width * 0.03,
+                ),
+                SizedBox(width: screenSize.width * 0.01),
+                Text(
+                  "Go to project",
+                  maxLines: 2,
+                  style: portfolioTheme.textTheme.headlineMedium?.copyWith(
+                    fontSize: widget.projectTitleFontSize,
+                    fontWeight: FontWeight.w800,
+                    fontStyle: FontStyle.italic,
+                    color: projects[currentProjectIndex].primaryProjectColor,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                SizedBox(width: screenSize.width * 0.015),
+                FaIcon(
+                  FontAwesomeIcons.chevronRight,
+                  size: screenSize.width * widget.linkIconSize,
+                  color: projects[currentProjectIndex].primaryProjectColor,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

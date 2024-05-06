@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_vinidev/app/core/utils/exports/theme_exports.dart';
 import 'package:portfolio_vinidev/app/dashboard/projects/component/project_card_mobile_component.dart';
 
-import '../component/project_card_component.dart';
 import '../project_view.dart';
 
 class ProjectsMobileView extends StatefulWidget {
