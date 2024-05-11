@@ -15,18 +15,6 @@ class _ProjectsMobileViewState extends State<ProjectsMobileView> {
   bool isProjectSelected = false;
   int projectSelectedIndex = 0;
 
-  final List<String> projectsAssets = [
-    'assets/images/projects/protechtor_gear.png',
-    'assets/images/projects/bmi_check.png',
-    'assets/images/projects/plus+.png',
-  ];
-
-  final List<Color> projectsColor = [
-    const Color(0xFFEB7703),
-    const Color(0xFF3D3A4D),
-    const Color(0xFFFF3838),
-  ];
-
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
