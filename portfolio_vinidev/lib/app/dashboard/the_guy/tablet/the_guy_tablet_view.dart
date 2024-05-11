@@ -151,7 +151,7 @@ class _TheGuyTabletViewState extends State<TheGuyTabletView> {
                 text: "DOWNLOAD CV",
                 onTap: () {
                   AnchorElement anchorElement =
-                      AnchorElement(href: "portfolio_vinidev/assets/cv/cv.pdf");
+                      AnchorElement(href: "assets/assets/cv/cv.pdf");
                   anchorElement.download = "Vinícius Soares da Silva Melo";
                   anchorElement.click();
                 },

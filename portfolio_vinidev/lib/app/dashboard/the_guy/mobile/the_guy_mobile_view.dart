@@ -137,7 +137,7 @@ class _TheGuyMobileViewState extends State<TheGuyMobileView> {
             width: 0.5,
             onTap: () {
               AnchorElement anchorElement =
-                  AnchorElement(href: "portfolio_vinidev/assets/cv/cv.pdf");
+                  AnchorElement(href: "assets/assets/cv/cv.pdf");
               anchorElement.download = "Vinícius Soares da Silva Melo";
               anchorElement.click();
             },
