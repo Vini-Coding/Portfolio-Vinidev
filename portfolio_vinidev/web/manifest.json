@@ -1,6 +1,6 @@
 {
-    "name": "portfolio_vinidev",
-    "short_name": "portfolio_vinidev",
+    "name": "Portfolio Vinidev",
+    "short_name": "Vinidev",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -140,7 +140,7 @@ class _TheGuyDesktopViewState extends State<TheGuyDesktopView> {
                 textFontSize: 18,
                 onTap: () {
                   AnchorElement anchorElement =
-                      AnchorElement(href: "/assets/cv/cv.pdf");
+                      AnchorElement(href: "portfolio_vinidev/assets/cv/cv.pdf");
                   anchorElement.download = "Vinícius Soares da Silva Melo";
                   anchorElement.click();
                 },
