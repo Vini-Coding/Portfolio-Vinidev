@@ -138,7 +138,7 @@ class _AboutMeComponentState extends State<AboutMeComponent> {
               style: portfolioTheme.textTheme.bodySmall?.copyWith(
                 fontSize: widget.bodyFontSize,
               ),
-              maxLines: 5,
+              maxLines: 10,
               textAlign: TextAlign.justify,
             ),
             SizedBox(height: screenSize.height * 0.02),

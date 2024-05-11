@@ -140,7 +140,8 @@ class _ProjectViewState extends State<ProjectView> {
                             projects[currentProjectIndex].primaryProjectColor,
                       ),
                     ),
-                    SizedBox(width: screenSize.width * 0.005),
+                    SizedBox(
+                        width: widget.isMobile ? 2 : screenSize.width * 0.005),
                     IconButton(
                       padding: const EdgeInsets.symmetric(horizontal: 0),
                       onPressed: () async => launchLink(
@@ -148,11 +149,14 @@ class _ProjectViewState extends State<ProjectView> {
                       ),
                       icon: FaIcon(
                         FontAwesomeIcons.github,
-                        size: screenSize.width * widget.linkIconSize,
+                        size: widget.isMobile
+                            ? 15
+                            : screenSize.width * widget.linkIconSize,
                         color: portfolioColorScheme.onBackground,
                       ),
                     ),
-                    SizedBox(width: screenSize.width * 0.005),
+                    SizedBox(
+                        width: widget.isMobile ? 2 : screenSize.width * 0.005),
                     IconButton(
                       padding: const EdgeInsets.all(0),
                       onPressed: () async => launchLink(
@@ -160,14 +164,19 @@ class _ProjectViewState extends State<ProjectView> {
                       ),
                       icon: FaIcon(
                         FontAwesomeIcons.linkedin,
-                        size: screenSize.width * widget.linkIconSize,
+                        size: widget.isMobile
+                            ? 15
+                            : screenSize.width * widget.linkIconSize,
                         color: portfolioColorScheme.onBackground,
                       ),
                     ),
-                    SizedBox(width: screenSize.width * 0.005),
+                    SizedBox(
+                        width: widget.isMobile ? 2 : screenSize.width * 0.005),
                     Image.asset(
                       'assets/images/projects/flutter_logo.png',
-                      width: screenSize.width * widget.linkIconSize,
+                      width: widget.isMobile
+                          ? 15
+                          : screenSize.width * widget.linkIconSize,
                     ),
                   ],
                 ),

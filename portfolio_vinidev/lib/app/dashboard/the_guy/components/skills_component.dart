@@ -145,6 +145,13 @@ class _SkillsComponentState extends State<SkillsComponent> {
                       fontSize: widget.bodyFontSize,
                     ),
                   ),
+                  const TextSpan(text: "• Unit "),
+                  TextSpan(
+                    text: "tests.\n",
+                    style: portfolioTheme.textTheme.bodySmall?.copyWith(
+                      fontSize: widget.bodyFontSize,
+                    ),
+                  ),
                   const TextSpan(text: "• RegEx "),
                   TextSpan(
                     text: "for validations.\n",
