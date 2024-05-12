@@ -24,7 +24,7 @@ class _HomeMobileViewState extends State<HomeMobileView> {
           textAlign: TextAlign.start,
           text: TextSpan(
             style: portfolioTheme.textTheme.displayLarge?.copyWith(
-              fontSize: 30,
+              fontSize: 26,
             ),
             text: "Hello world, ",
             children: [
