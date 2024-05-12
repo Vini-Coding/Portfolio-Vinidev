@@ -79,6 +79,7 @@ class _ArticlesMobileViewState extends State<ArticlesMobileView> {
         ),
         SizedBox(height: screenSize.height * 0.02),
         ArticleCardComponent(
+          verticalPadding: 0.003,
           width: 0.99,
           stackademicLabelWidth: screenSize.height < 500 ? 0.12 : 0.15,
           title: widget.article.title,

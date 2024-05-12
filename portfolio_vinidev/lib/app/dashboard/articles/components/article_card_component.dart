@@ -10,6 +10,7 @@ class ArticleCardComponent extends StatefulWidget {
   final String readTime;
   final void Function()? onTap;
   final double height;
+  final double verticalPadding;
   final double width;
   final double titleFontSize;
   final double infosFontSize;
@@ -24,6 +25,7 @@ class ArticleCardComponent extends StatefulWidget {
     required this.onTap,
     this.height = 0.15,
     this.width = 0.3,
+    this.verticalPadding = 0.005,
     this.titleFontSize = 18,
     this.infosFontSize = 10,
     this.stackademicLabelWidth = 0.07,
@@ -47,7 +49,7 @@ class _ArticleCardComponentState extends State<ArticleCardComponent> {
               height: screenSize.height * widget.height,
               width: screenSize.width * widget.width,
               padding: EdgeInsets.symmetric(
-                vertical: screenSize.height * 0.005,
+                vertical: screenSize.height * widget.verticalPadding,
                 horizontal: screenSize.width * 0.01,
               ),
               decoration: BoxDecoration(

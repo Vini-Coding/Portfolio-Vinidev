@@ -134,7 +134,7 @@ class _AboutMeComponentState extends State<AboutMeComponent> {
             ),
             SizedBox(height: screenSize.height * 0.02),
             Text(
-              "For me, 3 keys are needed for an efficient development. They are:\n1. How well you solve the user’s problem.\n2. How clean and maintanable is your code.\n3. How suitable is your app’s design.",
+              "For me, 3 keys are needed for an efficient development. They are: \n1. How well you solve the user’s problem. \n2. How clean and maintanable is your code. \n3. How suitable is your app’s design.",
               style: portfolioTheme.textTheme.bodySmall?.copyWith(
                 fontSize: widget.bodyFontSize,
               ),
